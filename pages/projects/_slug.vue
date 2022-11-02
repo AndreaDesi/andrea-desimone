@@ -16,12 +16,12 @@ export default {
 
 <template>
   <div>
+    <PrismicRichText :field="project.title" />
     <PrismicLink :field="project.category">{{
       project.category.data.category
     }}</PrismicLink>
     <p>{{ project.date }}</p>
     <PrismicRichText :field="project.role" />
-    <PrismicRichText :field="project.title" />
     <PrismicRichText :field="project.description" />
     <div v-for="(img, index) in project.images" :key="index">
       <img :src="img.image.url" alt="" />

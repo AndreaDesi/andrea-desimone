@@ -13,27 +13,27 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="about container">
     <div>
-      <p>WORK EXPERIENCE:</p>
+      <h3 class="about-title">WORK EXPERIENCE:</h3>
       <div v-for="(el, i) in about.data.work_experience" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
     </div>
     <div>
-      <p>EDUCATION:</p>
+      <h3 class="about-title">EDUCATION:</h3>
       <div v-for="(el, i) in about.data.education" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
     </div>
     <div>
-      <p>LANGUAGES:</p>
+      <h3 class="about-title">LANGUAGES:</h3>
       <div v-for="(el, i) in about.data.languages" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
     </div>
     <div>
-      <p>SKILLS:</p>
+      <h3 class="about-title">SKILLS:</h3>
       <div v-for="(el, i) in about.data.skills" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
@@ -41,4 +41,38 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style>
+.about {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 2rem;
+}
+
+.about-title {
+  font-family: 'Redaction 10';
+  font-style: italic;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.cv {
+  grid-column: 3;
+    text-align: right;
+}
+
+@media (max-width: 992px) {
+  .about {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      grid-gap: 1.5rem;
+  }
+	
+  .cv {
+	grid-column: auto;
+	grid-row: auto;
+}
+  }
+
+</style>
