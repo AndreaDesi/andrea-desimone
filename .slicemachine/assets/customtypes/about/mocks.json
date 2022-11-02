@@ -1,0 +1,59 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "about",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "work_experience": [
+      {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Excepteur amet est est deserunt nostrud ipsum anim voluptate consequat officia laboris magna dolor fugiat exercitation. Excepteur dolor eiusmod laborum minim quis.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "education": [
+      {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Lorem enim consectetur magna reprehenderit qui.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "languages": [
+      {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Ea nulla mollit quis nisi in do veniam duis eu eu dolore aliqua aute. Ad nulla laboris commodo ullamco aliquip exercitation exercitation laborum.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consequat reprehenderit consequat culpa proident sunt deserunt Lorem ex non aliqua amet voluptate ullamco reprehenderit sunt.",
+            "spans": []
+          }
+        ]
+      }
+    ]
+  }
+}

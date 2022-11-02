@@ -1,0 +1,35 @@
+{
+  "id": "projects",
+  "label": "Projects",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
+      "projects": {
+        "type": "Group",
+        "config": {
+          "label": "projects",
+          "fields": {
+            "project": {
+              "type": "Link",
+              "config": {
+                "label": "project",
+                "select": "document",
+                "customtypes": [
+                  "project"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

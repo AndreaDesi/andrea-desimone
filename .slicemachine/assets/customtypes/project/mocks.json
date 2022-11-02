@@ -1,0 +1,67 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "project",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "paragraph",
+        "text": "Cupidatat occaecat aute excepteur est laborum incididunt do sunt ex dolore. Non esse aliquip cillum deserunt do amet amet magna nostrud. Tempor fugiat occaecat magna mollit dolore ipsum adipisicing.",
+        "spans": []
+      }
+    ],
+    "category": {
+      "id": "mock_document_id",
+      "link_type": "Document",
+      "type": "category",
+      "tags": [],
+      "lang": "en-us",
+      "slug": null,
+      "first_publication_date": "1970-01-01T00:00:01+0000",
+      "last_publication_date": "1970-01-01T01:00:00+0000"
+    },
+    "date": "2015-08-05",
+    "role": [
+      {
+        "type": "paragraph",
+        "text": "Cupidatat duis culpa cupidatat ex elit. Sunt dolore quis incididunt. Anim eu deserunt non cupidatat proident in amet cillum.",
+        "spans": []
+      }
+    ],
+    "team": [
+      {
+        "type": "paragraph",
+        "text": "Labore labore mollit ut ut consectetur mollit occaecat. Amet pariatur et excepteur cupidatat consectetur proident eiusmod laboris labore fugiat aute amet. Occaecat nulla occaecat duis nostrud.",
+        "spans": []
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Anim nostrud adipisicing ullamco. Fugiat do amet ullamco tempor. Veniam sunt velit officia officia sit deserunt reprehenderit consectetur consequat consequat nisi do aute.",
+        "spans": []
+      }
+    ],
+    "images": [
+      {
+        "image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+        }
+      }
+    ]
+  }
+}
