@@ -55,6 +55,10 @@
   ul {
     padding: 0;
   }
+
+  p {
+    margin-top: 0;
+  }
   
   figure {
     margin: 0
@@ -87,7 +91,18 @@
     color: #C0B3EB;
   }
   
+table {
+  width: auto;
+  border-collapse: collapse;
+}
 
+tbody {
+	vertical-align: baseline;
+}
+
+td {
+	padding-right: 2em;
+}
   /*--------
 Responsive
 ----------*/

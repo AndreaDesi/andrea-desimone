@@ -15,29 +15,29 @@ export default {
 <template>
   <div class="about container">
     <div>
-      <h3 class="about-title">WORK EXPERIENCE:</h3>
+      <h2 class="about-title">WORK EXPERIENCE:</h2>
       <div v-for="(el, i) in about.data.work_experience" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
     </div>
     <div>
-      <h3 class="about-title">EDUCATION:</h3>
+      <h2 class="about-title">EDUCATION:</h2>
       <div v-for="(el, i) in about.data.education" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
     </div>
     <div>
-      <h3 class="about-title">LANGUAGES:</h3>
+      <h2 class="about-title">LANGUAGES:</h2>
       <div v-for="(el, i) in about.data.languages" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
-    </div>
-    <div>
-      <h3 class="about-title">SKILLS:</h3>
+      <br>
+      <h2 class="about-title">SKILLS:</h2>
       <div v-for="(el, i) in about.data.skills" :key="i">
         <PrismicRichText :field="el.content" />
       </div>
     </div>
+    <p class="cv"><u><a href="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf" target="_blank" data-type="URL" data-id="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf" rel="noreferrer noopener">Download CV</a></u></p>
   </div>
 </template>
 

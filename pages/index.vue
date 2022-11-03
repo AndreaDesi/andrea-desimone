@@ -54,14 +54,20 @@ export default {
     grid-gap: 1rem;
 }
 
+
 .home.container > .me {
   grid-column: 1 / span 6;
   font-size: calc(17px + (22 - 17) * ((100vw - 576px) / (2560 - 576)));
   line-height: calc(1.2em * 1.1);
+  margin-top: 1em;
 }
 
 .home.container > .info {
   grid-row: 2;
+}
+
+.home.container > .info >a{
+  margin-right: 0.5em;
 }
 
 .home.container > .contacts {
@@ -77,15 +83,6 @@ export default {
 .info {
   margin-top: 0px;
   align-self: center;
-}
-table {
-  border-collapse: collapse;
-}
-tbody {
-    vertical-align: baseline;
-}
-td {
-    padding-right: 2em;
 }
 /*--------
 Responsive
