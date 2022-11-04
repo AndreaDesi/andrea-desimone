@@ -1,11 +1,41 @@
 {
   "_cts": {
     "homepage": {},
-    "about": {},
+    "about": {
+      "skills": {
+        "skill_sx": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        },
+        "skill_dx": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      },
+      "languages": {
+        "content": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    },
     "projects": {
       "projects": {}
     },
-    "project": {},
+    "project": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
     "category": {
       "projects": {}
     }

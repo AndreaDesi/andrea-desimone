@@ -16,7 +16,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Excepteur amet est est deserunt nostrud ipsum anim voluptate consequat officia laboris magna dolor fugiat exercitation. Excepteur dolor eiusmod laborum minim quis.",
+            "text": "Sunt est aliquip dolore aliqua laboris elit. Aliqua anim duis duis ad laborum irure magna aliqua. Enim ea elit ut do anim irure nulla Lorem consectetur adipisicing.",
             "spans": []
           }
         ]
@@ -27,7 +27,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Lorem enim consectetur magna reprehenderit qui.",
+            "text": "Nisi adipisicing non proident cupidatat.",
             "spans": []
           }
         ]
@@ -38,7 +38,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Ea nulla mollit quis nisi in do veniam duis eu eu dolore aliqua aute. Ad nulla laboris commodo ullamco aliquip exercitation exercitation laborum.",
+            "text": "Commodo sint culpa proident ut. Do aliqua exercitation aliquip nulla quis.",
             "spans": []
           }
         ]
@@ -46,10 +46,17 @@
     ],
     "skills": [
       {
-        "content": [
+        "skill_sx": [
           {
             "type": "paragraph",
-            "text": "Consequat reprehenderit consequat culpa proident sunt deserunt Lorem ex non aliqua amet voluptate ullamco reprehenderit sunt.",
+            "text": "Qui sit sint pariatur aliqua in tempor consequat.",
+            "spans": []
+          }
+        ],
+        "skill_dx": [
+          {
+            "type": "paragraph",
+            "text": "Proident velit laborum veniam anim dolor irure consequat veniam consectetur deserunt do et non. Et adipisicing exercitation enim sunt proident eiusmod exercitation ex sint velit cupidatat magna ex minim.",
             "spans": []
           }
         ]

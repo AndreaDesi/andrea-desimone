@@ -18,42 +18,33 @@
           "label": "title",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "single": "preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl,paragraph"
         }
       },
-      "category": {
-        "type": "Link",
+      "info": {
+        "type": "Group",
         "config": {
-          "label": "category",
-          "select": "document",
-          "customtypes": [
-            "category"
-          ]
-        }
-      },
-      "date": {
-        "type": "Date",
-        "config": {
-          "label": "date",
-          "placeholder": ""
-        }
-      },
-      "role": {
-        "type": "StructuredText",
-        "config": {
-          "label": "role",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
-      "team": {
-        "type": "StructuredText",
-        "config": {
-          "label": "team",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "label": "Info",
+          "fields": {
+            "row_title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "row_title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "row_content": {
+              "type": "StructuredText",
+              "config": {
+                "label": "row_content",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            }
+          }
         }
       },
       "description": {

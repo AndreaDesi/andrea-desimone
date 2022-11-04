@@ -107,15 +107,25 @@ export interface AboutDocumentDataLanguagesItem {
  */
 export interface AboutDocumentDataSkillsItem {
     /**
-     * content field in *About → skills*
+     * skill_sx field in *About → skills*
      *
      * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: about.skills[].content
+     * - **API ID Path**: about.skills[].skill_sx
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    content: prismicT.RichTextField;
+    skill_sx: prismicT.RichTextField;
+    /**
+     * skill_dx field in *About → skills*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.skills[].skill_dx
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    skill_dx: prismicT.RichTextField;
 }
 /**
  * About document from Prismic
@@ -228,49 +238,16 @@ interface ProjectDocumentData {
      */
     title: prismicT.RichTextField;
     /**
-     * category field in *Project*
+     * Info field in *Project*
      *
-     * - **Field Type**: Content Relationship
+     * - **Field Type**: Group
      * - **Placeholder**: *None*
-     * - **API ID Path**: project.category
+     * - **API ID Path**: project.info[]
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
      *
      */
-    category: prismicT.RelationField<"category">;
-    /**
-     * date field in *Project*
-     *
-     * - **Field Type**: Date
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.date
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/date
-     *
-     */
-    date: prismicT.DateField;
-    /**
-     * role field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.role
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    role: prismicT.RichTextField;
-    /**
-     * team field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.team
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    team: prismicT.RichTextField;
+    info: prismicT.GroupField<Simplify<ProjectDocumentDataInfoItem>>;
     /**
      * description field in *Project*
      *
@@ -293,6 +270,32 @@ interface ProjectDocumentData {
      *
      */
     images: prismicT.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
+}
+/**
+ * Item in Project → Info
+ *
+ */
+export interface ProjectDocumentDataInfoItem {
+    /**
+     * row_title field in *Project → Info*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.info[].row_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    row_title: prismicT.RichTextField;
+    /**
+     * row_content field in *Project → Info*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.info[].row_content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    row_content: prismicT.RichTextField;
 }
 /**
  * Item in Project → images
@@ -366,6 +369,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AboutDocumentData, AboutDocumentDataWorkExperienceItem, AboutDocumentDataEducationItem, AboutDocumentDataLanguagesItem, AboutDocumentDataSkillsItem, AboutDocument, CategoryDocumentData, CategoryDocumentDataProjectsItem, CategoryDocument, HomepageDocumentData, HomepageDocument, ProjectDocumentData, ProjectDocumentDataImagesItem, ProjectDocument, ProjectsDocumentData, ProjectsDocumentDataProjectsItem, ProjectsDocument, AllDocumentTypes };
+        export type { AboutDocumentData, AboutDocumentDataWorkExperienceItem, AboutDocumentDataEducationItem, AboutDocumentDataLanguagesItem, AboutDocumentDataSkillsItem, AboutDocument, CategoryDocumentData, CategoryDocumentDataProjectsItem, CategoryDocument, HomepageDocumentData, HomepageDocument, ProjectDocumentData, ProjectDocumentDataInfoItem, ProjectDocumentDataImagesItem, ProjectDocument, ProjectsDocumentData, ProjectsDocumentDataProjectsItem, ProjectsDocument, AllDocumentTypes };
     }
 }

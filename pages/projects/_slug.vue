@@ -15,14 +15,13 @@ export default {
 </script>
 
 <template>
-  <div class="progetti grid container">
-    <div class="progetti-testo">
-      <h1 class="title redaction"><PrismicRichText :field="project.title" /></h1>
-      <PrismicLink :field="project.category">{{
-      project.category.data.category
-      }}</PrismicLink>
-      <p>{{ project.date }}</p>
-      <PrismicRichText :field="project.role" />
+  <div class="project grid container">
+    <div class="project-testo">
+      <PrismicRichText class="title redaction" :field="project.title" />
+      <div class="project-info" v-for="(info, i) in project.info" :key="i">
+        <PrismicRichText :field="info.row_title" />
+        <PrismicRichText :field="info.row_content" />
+      </div>
       <div class="descrizione">
         <PrismicRichText :field="project.description" />
       </div>
@@ -35,21 +34,22 @@ export default {
 </template>
 
 <style>
-.progetti {
+.project {
   min-height: 80.5vh;
   place-items: start;
   margin-top: 2vh;
 }
 
-.title {
+.title h1{
   margin-top: 0;
 	margin-bottom: 0.5em;
   font-size: calc(40px + (60 - 40) * ((100vw - 576px) / (2560 - 576)));
   text-transform: uppercase;
   text-align: left;
+  font-weight: 500;
 }
 
-.progetti-testo {
+.project-testo {
   grid-column: 1 / span 4;
 }
 
@@ -58,15 +58,21 @@ export default {
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+  margin-top: 1em;
 }
 
 .project-info {
-	line-height: 150%;
+	display: grid;
+  grid-template-columns: 13% 87%;
 	text-align: left !important;
 }
 
+.project-info p{
+  margin-bottom: 0.4em;
+}
 
-.progetti > figure {
+
+.project > figure {
   grid-column: 5 / span 6;
   width: 100%;
   max-height: 83vh;
@@ -114,4 +120,31 @@ img{
   width: 100%;
   height: auto;
 }
+
+/*--------
+Responsive
+----------*/
+@media (max-width: 992px) {
+  .project {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 0;
+  }
+
+  .project.grid.container > .wp-block-group {
+    grid-column: 1;
+  }
+
+  .project > figure {
+      grid-column: 1;
+      width: 100%;
+	  justify-self: center;
+    }
+	
+	.title {
+    margin-top: 0;
+	margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+  }
+
 </style>
