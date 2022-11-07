@@ -80,6 +80,12 @@ figure {
   grid-gap: 1.5rem;
 }
 
+@media (max-width: 900px) {
+  .grid {
+    display: block;
+  }
+}
+
 .redaction {
   font-family: "Redaction 10", serif;
   font-style: italic;

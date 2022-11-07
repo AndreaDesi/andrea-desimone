@@ -29,15 +29,17 @@ export default {
         </div>
       </div>
 
-      <Carousel>
-        <div
-          class="embla__slide"
-          v-for="(img, index) in project.images"
-          :key="index"
-        >
-          <img :src="img.image.url" alt="" />
-        </div>
-      </Carousel>
+      <div class="project-carousel">
+        <Carousel>
+          <img
+            class="embla__slide"
+            v-for="(img, index) in project.images"
+            :key="index"
+            :src="img.image.url"
+            alt=""
+          />
+        </Carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -74,6 +76,11 @@ export default {
   display: grid;
   grid-template-columns: 13% 87%;
   text-align: left !important;
+}
+
+.project-carousel {
+  position: relative;
+  grid-column: 5 / span 8;
 }
 
 .project-info p {
