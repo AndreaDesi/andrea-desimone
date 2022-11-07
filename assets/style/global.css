@@ -80,12 +80,6 @@ figure {
   font-weight: 500;
 }
 
-.starly {
-  position: absolute;
-  z-index: 1000;
-  width: 30px;
-}
-
 a:hover {
   color: #c0b3eb;
 }

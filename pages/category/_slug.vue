@@ -22,6 +22,8 @@ export default {
 
 <template>
   <div>
+    <Starly />
+
     <div v-for="({ project }, i) in category.projects" :key="i">
       <nuxt-link :to="`/projects/` + project.slug">
         <PrismicRichText :field="project.data.title" />

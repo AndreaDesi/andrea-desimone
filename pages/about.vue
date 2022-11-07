@@ -13,43 +13,46 @@ export default {
 </script>
 
 <template>
-  <div class="about container">
-    <div>
-      <h2 class="about-title">WORK EXPERIENCE:</h2>
-      <div v-for="(el, i) in about.data.work_experience" :key="i">
-        <PrismicRichText :field="el.content" />
+  <div>
+    <Starly />
+    <div class="about container">
+      <div>
+        <h2 class="about-title">WORK EXPERIENCE:</h2>
+        <div v-for="(el, i) in about.data.work_experience" :key="i">
+          <PrismicRichText :field="el.content" />
+        </div>
       </div>
+      <div>
+        <h2 class="about-title">EDUCATION:</h2>
+        <div v-for="(el, i) in about.data.education" :key="i">
+          <PrismicRichText :field="el.content" />
+        </div>
+      </div>
+      <div>
+        <h2 class="about-title">LANGUAGES:</h2>
+        <div v-for="(el, i) in about.data.languages" :key="i">
+          <PrismicRichText :field="el.content" />
+        </div>
+        <br />
+        <h2 class="about-title">SKILLS:</h2>
+        <div class="skills" v-for="(skill, i) in about.data.skills" :key="i">
+          <PrismicRichText :field="skill.skill_sx" />
+          <PrismicRichText :field="skill.skill_dx" />
+        </div>
+      </div>
+      <p class="cv">
+        <u
+          ><a
+            href="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf"
+            target="_blank"
+            data-type="URL"
+            data-id="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf"
+            rel="noreferrer noopener"
+            >Download CV</a
+          ></u
+        >
+      </p>
     </div>
-    <div>
-      <h2 class="about-title">EDUCATION:</h2>
-      <div v-for="(el, i) in about.data.education" :key="i">
-        <PrismicRichText :field="el.content" />
-      </div>
-    </div>
-    <div>
-      <h2 class="about-title">LANGUAGES:</h2>
-      <div v-for="(el, i) in about.data.languages" :key="i">
-        <PrismicRichText :field="el.content" />
-      </div>
-      <br />
-      <h2 class="about-title">SKILLS:</h2>
-      <div class="skills" v-for="(skill, i) in about.data.skills" :key="i">
-        <PrismicRichText :field="skill.skill_sx" />
-        <PrismicRichText :field="skill.skill_dx" />
-      </div>
-    </div>
-    <p class="cv">
-      <u
-        ><a
-          href="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf"
-          target="_blank"
-          data-type="URL"
-          data-id="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf"
-          rel="noreferrer noopener"
-          >Download CV</a
-        ></u
-      >
-    </p>
   </div>
 </template>
 

@@ -15,20 +15,22 @@ export default {
 </script>
 
 <template>
-  <div class="project grid container">
-    <div class="project-testo">
-      <PrismicRichText class="title redaction" :field="project.title" />
-      <div class="project-info" v-for="(info, i) in project.info" :key="i">
-        <PrismicRichText :field="info.row_title" />
-        <PrismicRichText :field="info.row_content" />
+  <div>
+    <Starly />
+    <div class="project grid container">
+      <div class="project-testo">
+        <PrismicRichText class="title redaction" :field="project.title" />
+        <div class="project-info" v-for="(info, i) in project.info" :key="i">
+          <PrismicRichText :field="info.row_title" />
+          <PrismicRichText :field="info.row_content" />
+        </div>
+        <div class="descrizione">
+          <PrismicRichText :field="project.description" />
+        </div>
       </div>
-      <div class="descrizione">
-        <PrismicRichText :field="project.description" />
+      <div v-for="(img, index) in project.images" :key="index">
+        <img :src="img.image.url" alt="" />
       </div>
-     
-    </div>
-    <div v-for="(img, index) in project.images" :key="index">
-      <img :src="img.image.url" alt="" />
     </div>
   </div>
 </template>
@@ -40,9 +42,9 @@ export default {
   margin-top: 2vh;
 }
 
-.title h1{
+.title h1 {
   margin-top: 0;
-	margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
   font-size: calc(40px + (60 - 40) * ((100vw - 576px) / (2560 - 576)));
   text-transform: uppercase;
   text-align: left;
@@ -53,7 +55,7 @@ export default {
   grid-column: 1 / span 4;
 }
 
-.descrizione{
+.descrizione {
   text-align: justify;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
@@ -62,15 +64,14 @@ export default {
 }
 
 .project-info {
-	display: grid;
+  display: grid;
   grid-template-columns: 13% 87%;
-	text-align: left !important;
+  text-align: left !important;
 }
 
-.project-info p{
+.project-info p {
   margin-bottom: 0.4em;
 }
-
 
 .project > figure {
   grid-column: 5 / span 6;
@@ -90,7 +91,7 @@ export default {
   margin-top: 0;
 }
 
-.swiper-button-next{
+.swiper-button-next {
   color: white !important;
   width: 50% !important;
   height: 100% !important;
@@ -99,11 +100,12 @@ export default {
   opacity: 0 !important;
   margin-top: 0px !important;
   cursor: e-resize !important;
-  cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-right.png), auto !important;
+  cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-right.png),
+    auto !important;
   mix-blend-mode: difference;
 }
 
-.swiper-button-prev{
+.swiper-button-prev {
   color: white !important;
   width: 50% !important;
   height: 100% !important;
@@ -111,11 +113,12 @@ export default {
   left: 0 !important;
   opacity: 0 !important;
   margin-top: 0px !important;
-  cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-left.png), auto !important;
+  cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-left.png),
+    auto !important;
   mix-blend-mode: difference;
 }
 
-img{
+img {
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -135,16 +138,15 @@ Responsive
   }
 
   .project > figure {
-      grid-column: 1;
-      width: 100%;
-	  justify-self: center;
-    }
-	
-	.title {
-    margin-top: 0;
-	margin-bottom: 0.5em;
-    text-transform: uppercase;
-}
+    grid-column: 1;
+    width: 100%;
+    justify-self: center;
   }
 
+  .title {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+}
 </style>
