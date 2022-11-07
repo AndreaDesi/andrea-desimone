@@ -28,9 +28,16 @@ export default {
           <PrismicRichText :field="project.description" />
         </div>
       </div>
-      <div v-for="(img, index) in project.images" :key="index">
-        <img :src="img.image.url" alt="" />
-      </div>
+
+      <Carousel>
+        <div
+          class="embla__slide"
+          v-for="(img, index) in project.images"
+          :key="index"
+        >
+          <img :src="img.image.url" alt="" />
+        </div>
+      </Carousel>
     </div>
   </div>
 </template>
@@ -116,12 +123,6 @@ export default {
   cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-left.png),
     auto !important;
   mix-blend-mode: difference;
-}
-
-img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
 }
 
 /*--------
