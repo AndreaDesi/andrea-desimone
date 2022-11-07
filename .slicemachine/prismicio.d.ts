@@ -270,6 +270,28 @@ interface ProjectDocumentData {
      *
      */
     images: prismicT.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
+    /**
+     * category field in *Project*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    category: prismicT.RichTextField;
+    /**
+     * date field in *Project*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    date: prismicT.RichTextField;
 }
 /**
  * Item in Project → Info

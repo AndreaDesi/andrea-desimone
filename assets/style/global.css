@@ -1,109 +1,108 @@
-/*--------
 @font-face {
-    font-family: 'Catcus Grotesk';
-    src: url('../webfonts/CatcusGrotesk.woff2');
-  }
-  
-  @font-face {
-    font-family: 'Redaction 10';
-    src: url('../webfonts/Redaction10-Italic.woff2');
-  }
-  ----------*/
+  font-family: "Catcus Grotesk";
+  src: url("/fonts/CatcusGrotesk.woff2");
+}
 
-  html {
-    color: #1a1a1a;
-    background-color: #FFFFFF;
-    margin-left: 1.5%;
-    margin-right: 1.5%;
-    font-family: 'Catcus Grotesk', sans-serif;
-    font-variant-numeric: slashed-zero;
-    font-optical-sizing: auto;
-    text-rendering: optimizeLegibility;
-    font-variant-ligatures: common-ligatures;
-    font-feature-settings: 'ss16' on;
-    font-size: calc(15px + (18 - 15) * ((100vw - 576px) / (2560 - 576)));
-    cursor: crosshair;
-  }
-  
-  html, body {
-    overflow-x:hidden;
-  } 
-  
-  ::selection {
-    color: #C0B3EB;
-  }
-  
-  body {
-    margin: 0;
-    overflow: hidden;
-  }
-  
-  a {
-    color: #1a1a1a;
-    text-decoration: none;
-  }
-  
-  a:visited {
-    color: #1a1a1a;
-    text-decoration: none;
-  }
-  
-  li {
-    list-style-type:none;
-  }
-  
-  ul {
-    padding: 0;
-  }
+@font-face {
+  font-family: "Redaction 10";
+  src: url("/fonts/Redaction10-Italic.woff2");
+}
 
-  p {
-    margin-top: 0;
-  }
-  
-  figure {
-    margin: 0
-  }
-  
-  .container {
-    width: 100%;
-    position: relative;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: 1.5rem;
-  }
-  
-  .redaction {
-    font-family: 'Redaction 10', serif;
-    font-style: italic;
-    font-weight: 500;
-  }
-  
-  .starly {
-    position: absolute;
-    z-index: 1000;
-    width: 30px;
-  }
-  
-  a:hover {
-    color: #C0B3EB;
-  }
-  
+html {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  font-family: "Catcus Grotesk", sans-serif;
+  font-variant-numeric: slashed-zero;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "ss16" on;
+  font-size: calc(15px + (18 - 15) * ((100vw - 576px) / (2560 - 576)));
+  cursor: crosshair;
+}
+
+html,
+body {
+  scroll-behavior: none;
+}
+
+::selection {
+  color: #c0b3eb;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.redaction {
+  font-family: "Redaction 10", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.starly {
+  position: absolute;
+  z-index: 1000;
+  width: 30px;
+}
+
+a:hover {
+  color: #c0b3eb;
+}
+
 table {
   width: auto;
   border-collapse: collapse;
 }
 
 tbody {
-	vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 td {
-	padding-right: 2em;
+  padding-right: 2em;
 }
-  /*--------
+/*--------
 Responsive
 ----------*/
 @media (max-width: 767px) {
@@ -113,6 +112,6 @@ Responsive
   html {
     margin-left: 3%;
     margin-right: 3%;
-	  overflow-x:hidden !important;
+    overflow-x: hidden !important;
   }
-  }
+}
