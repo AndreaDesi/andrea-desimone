@@ -7,11 +7,13 @@ export default {
         "project.title",
         "project.images",
         "project.category",
+        "category.category",
         "project.date",
       ],
     });
 
     if (projects) {
+      console.log(projects.data);
       return { projects: projects.data.projects };
     } else {
       error({ statusCode: 404, message: "Page not found" });
@@ -35,11 +37,14 @@ export default {
           v-for="({ project }, i) in projects"
           :key="i"
         >
-          <nuxt-link class="post-title" :to="`/projects/` + project.slug">
+          <nuxt-link class="post-title" :to="project.url">
             <p>{{ $prismic.asText(project.data.title) }}</p>
           </nuxt-link>
 
-          <p>{{ $prismic.asText(project.data.category) }}</p>
+          <nuxt-link :to="project.data.category.url">
+            <p>{{ project.data.category.data.category }}</p>
+          </nuxt-link>
+
           <p>{{ $prismic.asText(project.data.date) }}</p>
 
           <div

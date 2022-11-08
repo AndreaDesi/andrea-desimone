@@ -52,6 +52,17 @@ interface AboutDocumentData {
      *
      */
     skills: prismicT.GroupField<Simplify<AboutDocumentDataSkillsItem>>;
+    /**
+     * cv_link field in *About*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.cv_link
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    cv_link: prismicT.LinkField;
 }
 /**
  * Item in About → work_experience
@@ -238,6 +249,28 @@ interface ProjectDocumentData {
      */
     title: prismicT.RichTextField;
     /**
+     * category field in *Project*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    category: prismicT.RelationField<"category">;
+    /**
+     * date field in *Project*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    date: prismicT.RichTextField;
+    /**
      * Info field in *Project*
      *
      * - **Field Type**: Group
@@ -270,28 +303,6 @@ interface ProjectDocumentData {
      *
      */
     images: prismicT.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
-    /**
-     * category field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.category
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    category: prismicT.RichTextField;
-    /**
-     * date field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.date
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    date: prismicT.RichTextField;
 }
 /**
  * Item in Project → Info

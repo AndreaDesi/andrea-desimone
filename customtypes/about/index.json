@@ -88,6 +88,15 @@
             }
           }
         }
+      },
+      "cv_link": {
+        "type": "Link",
+        "config": {
+          "label": "cv_link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
       }
     }
   }

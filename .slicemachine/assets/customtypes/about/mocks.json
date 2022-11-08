@@ -16,7 +16,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Sunt est aliquip dolore aliqua laboris elit. Aliqua anim duis duis ad laborum irure magna aliqua. Enim ea elit ut do anim irure nulla Lorem consectetur adipisicing.",
+            "text": "Id ullamco est tempor enim officia excepteur minim amet in incididunt commodo in. Deserunt voluptate adipisicing velit labore velit deserunt nulla sint laboris amet est. Pariatur esse sint adipisicing labore veniam ipsum velit qui elit cupidatat.",
             "spans": []
           }
         ]
@@ -27,7 +27,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Nisi adipisicing non proident cupidatat.",
+            "text": "Ex labore nulla anim ex nulla deserunt occaecat.",
             "spans": []
           }
         ]
@@ -38,7 +38,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Commodo sint culpa proident ut. Do aliqua exercitation aliquip nulla quis.",
+            "text": "Tempor reprehenderit aliquip non laboris labore in nisi. Mollit anim quis ex mollit consectetur adipisicing anim elit enim fugiat minim labore. Voluptate id consectetur consectetur ut.",
             "spans": []
           }
         ]
@@ -49,18 +49,22 @@
         "skill_sx": [
           {
             "type": "paragraph",
-            "text": "Qui sit sint pariatur aliqua in tempor consequat.",
+            "text": "Eiusmod proident est cupidatat consequat aute voluptate qui laborum qui eu qui ea velit.",
             "spans": []
           }
         ],
         "skill_dx": [
           {
             "type": "paragraph",
-            "text": "Proident velit laborum veniam anim dolor irure consequat veniam consectetur deserunt do et non. Et adipisicing exercitation enim sunt proident eiusmod exercitation ex sint velit cupidatat magna ex minim.",
+            "text": "Labore eu fugiat minim elit enim minim pariatur voluptate irure cillum ipsum anim anim excepteur sit. Officia id voluptate nisi ea deserunt sit occaecat aliqua anim id proident in ea ea.",
             "spans": []
           }
         ]
       }
-    ]
+    ],
+    "cv_link": {
+      "link_type": "Web",
+      "url": "https://slicemachine.dev"
+    }
   }
 }

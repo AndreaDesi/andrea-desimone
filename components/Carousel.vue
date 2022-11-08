@@ -118,7 +118,7 @@ export default {
 }
 .embla__button {
   outline: 0;
-  cursor: pointer;
+  cursor: none;
   background-color: transparent;
   touch-action: manipulation;
   position: absolute;
@@ -131,16 +131,12 @@ export default {
   padding: 0;
   width: 45px;
   height: 46px;
-
-  /* @apply w-[45px]  h-[46px] md:w-[60px] md:h-[60px] lg:w-[86px] lg:h-[86px] hidden lg:block; */
 }
 
 .embla__button--prev {
   left: 0;
   width: 50%;
   height: 100%;
-
-  /* @apply left-[20px] md:left-[40px]; */
 }
 
 .embla__button--prev span {
@@ -154,7 +150,6 @@ export default {
   right: 0;
   width: 50%;
   height: 100%;
-  /* @apply right-[20px] md:right-[20px]; */
 }
 
 .embla__button--next span {

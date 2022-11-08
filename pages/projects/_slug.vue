@@ -1,9 +1,7 @@
 <script>
 export default {
   async asyncData({ $prismic, params, error, store }) {
-    const project = await $prismic.api.getByUID("project", params.slug, {
-      fetchLinks: ["category.category"],
-    });
+    const project = await $prismic.api.getByUID("project", params.slug);
 
     if (project) {
       return { project: project.data };

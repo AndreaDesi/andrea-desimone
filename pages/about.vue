@@ -40,18 +40,10 @@ export default {
           <PrismicRichText :field="skill.skill_dx" />
         </div>
       </div>
-      <p class="cv">
-        <u
-          ><a
-            href="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf"
-            target="_blank"
-            data-type="URL"
-            data-id="https://andreadesimone.info/wp-content/uploads/2021/12/Andrea-De-Simone_CV.pdf"
-            rel="noreferrer noopener"
-            >Download CV</a
-          ></u
-        >
-      </p>
+
+      <PrismicLink class="cv" :field="about.data.cv_link"
+        >Download CV</PrismicLink
+      >
     </div>
   </div>
 </template>
@@ -80,6 +72,7 @@ export default {
 .cv {
   grid-column: 3;
   text-align: right;
+  text-decoration: underline;
 }
 
 @media (max-width: 992px) {
