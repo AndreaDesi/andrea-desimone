@@ -3,8 +3,30 @@ export default {
   async asyncData({ $prismic, params, error, store }) {
     const project = await $prismic.api.getByUID("project", params.slug);
 
+    const prevProject = (
+      await $prismic.api.query(
+        $prismic.predicates.at("document.type", "project"),
+        {
+          pageSize: 1,
+          after: `${project.id}`,
+          orderings: "[document.first_publication_date desc]",
+        }
+      )
+    ).results[0];
+
+    const nextProject = (
+      await $prismic.api.query(
+        $prismic.predicates.at("document.type", "project"),
+        {
+          pageSize: 1,
+          after: `${project.id}`,
+          orderings: "[document.first_publication_date]",
+        }
+      )
+    ).results[0];
+
     if (project) {
-      return { project: project.data };
+      return { project: project.data, prevProject, nextProject };
     } else {
       error({ statusCode: 404, message: "Page not found" });
     }
@@ -25,6 +47,13 @@ export default {
         <div class="descrizione">
           <PrismicRichText :field="project.description" />
         </div>
+
+        <nuxt-link v-if="prevProject !== undefined" :to="prevProject.url">
+          <p>← Previous Post</p>
+        </nuxt-link>
+        <nuxt-link v-if="nextProject !== undefined" :to="nextProject.url">
+          <p>Next Post →</p>
+        </nuxt-link>
       </div>
 
       <div class="project-carousel">
