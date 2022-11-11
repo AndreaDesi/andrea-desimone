@@ -37,8 +37,6 @@ nav {
   align-content: stretch;
 }
 
-.menu-nav-container {
-}
 
 #menu-nav {
   display: grid;
