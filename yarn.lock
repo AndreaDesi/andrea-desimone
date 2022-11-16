@@ -7973,6 +7973,11 @@ prismic-ts-codegen@^0.1.5:
   optionalDependencies:
     "@prismicio/client" "^6.6"
 
+prismic.io@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/prismic.io/-/prismic.io-3.6.1.tgz#845887f061951f1ffa82fd319b3eaaf33fc5e3e3"
+  integrity sha512-kBUMC+mZWMoS3cd5YtY2UyOlYdz86wuoRz1FlE9T/TueMpR6NsdM6zD16hEuGJ6QTjeFaABoctXRgOyqg2BE9g==
+
 probe-image-size@^7.2.2:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/probe-image-size/-/probe-image-size-7.2.3.tgz#d49c64be540ec8edea538f6f585f65a9b3ab4309"
@@ -9877,8 +9882,10 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"

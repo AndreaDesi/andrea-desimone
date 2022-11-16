@@ -48,12 +48,6 @@ export default {
           <PrismicRichText :field="project.description" />
         </div>
 
-        <nuxt-link v-if="prevProject !== undefined" :to="prevProject.url">
-          <p>← Previous Post</p>
-        </nuxt-link>
-        <nuxt-link v-if="nextProject !== undefined" :to="nextProject.url">
-          <p>Next Post →</p>
-        </nuxt-link>
       </div>
 
       <div class="project-carousel">
@@ -68,6 +62,14 @@ export default {
         </Carousel>
       </div>
     </div>
+    <div class="grid container footer">
+        <nuxt-link class="indietro" v-if="prevProject !== undefined" :to="prevProject.url">
+          <p>← Previous Post</p>
+        </nuxt-link>
+        <nuxt-link class="avanti" v-if="nextProject !== undefined" :to="nextProject.url">
+          <p>Next Post →</p>
+        </nuxt-link>
+      </div>
   </div>
 </template>
 
@@ -105,6 +107,10 @@ export default {
   text-align: left !important;
 }
 
+.project-info p{
+ margin-top: 0;
+}
+
 .project-carousel {
   position: relative;
   grid-column: 5 / span 8;
@@ -124,39 +130,18 @@ export default {
   margin: 0 !important;
 }
 
-.swiper {
-  width: 100%;
+.footer {
+  height: 9vh;
+  align-items: center;
 }
 
-.swiper-wrapper {
-  margin-top: 0;
+.indietro {
+  grid-column: 1 / span 5;
 }
 
-.swiper-button-next {
-  color: white !important;
-  width: 50% !important;
-  height: 100% !important;
-  top: 0 !important;
-  right: 0 !important;
-  opacity: 0 !important;
-  margin-top: 0px !important;
-  cursor: e-resize !important;
-  cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-right.png),
-    auto !important;
-  mix-blend-mode: difference;
-}
-
-.swiper-button-prev {
-  color: white !important;
-  width: 50% !important;
-  height: 100% !important;
-  top: 0 !important;
-  left: 0 !important;
-  opacity: 0 !important;
-  margin-top: 0px !important;
-  cursor: url(https://andreadesimone.info/wp-content/uploads/2021/12/arrow-left.png),
-    auto !important;
-  mix-blend-mode: difference;
+.avanti {
+  grid-column: 6 / span 5;
+  text-align: right;
 }
 
 /*--------

@@ -66,7 +66,11 @@ export default {
 
 .skills {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 35% 35%;
+}
+
+.skills p{
+  margin-top: 0;
 }
 
 .cv {
