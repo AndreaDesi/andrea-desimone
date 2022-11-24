@@ -52,13 +52,15 @@ export default {
 
       <div class="project-carousel">
         <Carousel>
-          <img
-            class="embla__slide"
-            v-for="(img, index) in project.images"
-            :key="index"
-            :src="img.image.url"
-            alt=""
-          />
+          <div class="embla__slide w-full h-0 pb-[68.75%] relative"
+              v-for="(img, index) in project.images"
+              :key="index">
+            <img class="absolute top-0 left-0 w-full h-full cover"
+              :src="img.image.url"
+              alt=""
+            />
+          </div>
+          
         </Carousel>
       </div>
     </div>
