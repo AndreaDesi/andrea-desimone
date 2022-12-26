@@ -7,6 +7,7 @@ export default {
         "project.title",
         "project.images",
         "project.category",
+        "category.category",
         "project.date",
       ],
     });
@@ -30,14 +31,24 @@ export default {
             <h3 class="about-title">Medium</h3>
             <h3 class="about-title">Year</h3>
           </div>
-          <div class="post-title" v-for="({ project }, i) in category.projects" :key="i">
-            <nuxt-link :to="`/projects/` + project.slug">
-              <PrismicRichText :field="project.data.title" />
-              <p>{{ project.data.date }}</p>
+          <div class="progetti-post progetti-hover" v-for="({ project }, i) in category.projects" :key="i">
+
+            <nuxt-link class="post-title" :to="`/projects/` + project.slug">
+              <p>{{ $prismic.asText(project.data.title) }}</p>
             </nuxt-link>
-            <div class="post-thumbnail" v-for="(img, index) in project.data.images" :key="index">
-              <img v-if="index === 0" :src="img.image.url" alt="" />
-            </div>
+
+            <nuxt-link :to="project.data.category.url">
+              <p>{{ project.data.category.url}}</p>
+          </nuxt-link>
+
+            <p>{{ $prismic.asText(project.data.date) }}</p>
+            <div
+            class="post-thumbnail"
+            v-for="(img, index) in project.data.images"
+            :key="index"
+          >
+            <img v-if="index === 0" :src="img.image.url" alt="" />
+          </div>
           </div>
       </div>
     </div>

@@ -66,10 +66,10 @@ export default {
     </div>
     <div class="grid container footer">
         <nuxt-link class="indietro" v-if="prevProject !== undefined" :to="prevProject.url">
-          <p>← Previous Post</p>
+          <p>← Previous project</p>
         </nuxt-link>
         <nuxt-link class="avanti" v-if="nextProject !== undefined" :to="nextProject.url">
-          <p>Next Post →</p>
+          <p>Next project →</p>
         </nuxt-link>
       </div>
   </div>
@@ -111,6 +111,10 @@ export default {
 
 .project-info p{
  margin-top: 0;
+}
+
+.project-info a{
+  text-decoration: underline;
 }
 
 .project-carousel {

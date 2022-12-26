@@ -86,6 +86,10 @@ export default {
   margin-top: 1em;
 }
 
+.home .me a {
+  text-decoration: underline;
+}
+
 .home.container > .info {
   grid-row: 2;
 }

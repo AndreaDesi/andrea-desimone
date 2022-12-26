@@ -57,6 +57,10 @@ export default {
   grid-gap: 2rem;
 }
 
+.about a{
+  text-decoration: underline;
+}
+
 .about-title {
   font-family: "Redaction 10";
   font-style: italic;
@@ -71,6 +75,7 @@ export default {
 
 .skills p{
   margin-top: 0;
+  margin-bottom: 3px;
 }
 
 .cv {
