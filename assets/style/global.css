@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Catcus Grotesk";
-  src: url("/fonts/CatcusGrotesk.woff2");
+  src: url("/font/CatcusGrotesk.woff2");
 }
 
 @font-face {
   font-family: "Redaction 10";
-  src: url("/fonts/Redaction10-Italic.woff2");
+  src: url("/font/Redaction10-Italic.woff2");
 }
 
 html {
