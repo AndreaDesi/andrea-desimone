@@ -91,9 +91,15 @@ export default {
     grid-gap: 1.5rem;
   }
 
+  .skills {
+    grid-template-columns: 50% 50%;
+}
+
   .cv {
     grid-column: auto;
     grid-row: auto;
+    margin-top: 0.83em;
+    margin-bottom: 2em;
   }
 }
 </style>

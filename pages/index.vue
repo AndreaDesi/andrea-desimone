@@ -23,7 +23,7 @@ export default {
           >↗ <u>See my projects</u></PrismicLink
         >
       </div>
-      <div class="wp-block-table info contacts">
+      <div class="info contacts">
         <table>
           <tbody>
             <tr>
@@ -129,15 +129,18 @@ Responsive
   .home.container > .info {
     grid-row: auto;
   }
+  
+  .home.container > .contacts {
+    grid-column: 1;
+    line-height: 1.4rem;
+    margin-bottom: 1em
+  }
 
   .home.container > .social {
     grid-column: 1;
     line-height: 1.4rem;
   }
 
-  .home.container > .contacts {
-    grid-column: 1;
-    line-height: 1.4rem;
-  }
+
 }
 </style>

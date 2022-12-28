@@ -82,12 +82,6 @@ figure {
   font-weight: 500;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    display: block;
-  }
-}
-
 a:hover {
   color: #c0b3eb;
 }
@@ -104,6 +98,8 @@ tbody {
 td {
   padding-right: 2em;
 }
+
+
 /*--------
 Responsive
 ----------*/

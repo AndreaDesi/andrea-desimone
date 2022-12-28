@@ -117,16 +117,11 @@ export default {
   text-decoration: underline;
 }
 
-.project-carousel {
-  position: relative;
-  grid-column: 5 / span 8;
-}
-
 .project-info p {
   margin-bottom: 0.4em;
 }
 
-.project > figure {
+.project > .project-carousel {
   grid-column: 5 / span 6;
   width: 100%;
   max-height: 83vh;
@@ -159,11 +154,15 @@ Responsive
     margin-top: 0;
   }
 
-  .project.grid.container > .wp-block-group {
+  .project.grid.container {
     grid-column: 1;
   }
 
-  .project > figure {
+  .project > .project-testo {
+    grid-column: 1;
+  }
+
+  .project > .project-carousel {
     grid-column: 1;
     width: 100%;
     justify-self: center;
