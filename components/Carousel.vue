@@ -162,4 +162,14 @@ export default {
 .hidden {
   opacity: 0;
 }
+
+@media (max-width: 992px) {
+  .embla__button--next .js-next-arrow {
+    opacity: 0;
+  }
+
+  .embla__button--prev .js-prev-arrow {
+    opacity: 0;
+  }
+}
 </style>
