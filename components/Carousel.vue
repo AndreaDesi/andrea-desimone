@@ -8,6 +8,7 @@ export default {
     const [emblaNode, emblaApi] = emblaCarouselVue({
       draggable: true,
       loop: true,
+      speed: 17,
     });
 
     onMounted(() => {
@@ -165,6 +166,11 @@ export default {
 }
 
 @media (max-width: 992px) {
+
+  .embla {
+  position: relative;
+}
+
   .embla__button--next .js-next-arrow {
     opacity: 0;
   }

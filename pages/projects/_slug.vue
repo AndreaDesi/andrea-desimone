@@ -129,7 +129,7 @@ export default {
   justify-self: right;
   padding: 0 !important;
   margin: 0 !important;
-  position: absolute;
+  position: relative;
 }
 
 .footer {
