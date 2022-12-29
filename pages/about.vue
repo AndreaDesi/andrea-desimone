@@ -82,6 +82,7 @@ export default {
   grid-column: 3;
   text-align: right;
   text-decoration: underline;
+  margin-bottom: 1em;
 }
 
 @media (max-width: 992px) {
@@ -99,7 +100,6 @@ export default {
     grid-column: auto;
     grid-row: auto;
     margin-top: 0.83em;
-    margin-bottom: 2em;
   }
 }
 </style>
