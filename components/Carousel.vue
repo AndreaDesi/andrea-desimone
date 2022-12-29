@@ -109,6 +109,7 @@ export default {
 /* Embla (Carousel) */
 .embla {
   overflow: hidden;
+  position: absolute;
 }
 .embla__container {
   display: flex;
