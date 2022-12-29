@@ -83,6 +83,7 @@ export default {
   text-align: right;
   text-decoration: underline;
   margin-bottom: 1em;
+  line-height: 1.6rem;
 }
 
 @media (max-width: 992px) {
