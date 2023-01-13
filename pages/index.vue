@@ -83,7 +83,6 @@ export default {
   grid-column: 1 / span 6;
   font-size: calc(17px + (22 - 17) * ((100vw - 576px) / (2560 - 576)));
   line-height: calc(1.2em * 1.1);
-  margin-top: 1em;
 }
 
 .home .me a {
