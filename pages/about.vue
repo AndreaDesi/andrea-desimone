@@ -9,6 +9,20 @@ export default {
       error({ statusCode: 404, message: "Page not found" });
     }
   },
+
+  head() {
+
+    return {
+      title: "About",
+      meta: [
+        {
+          hid: "og-title",
+          name: "og:title",
+          content: "About"
+        }
+      ]
+    };
+  },
 };
 </script>
 

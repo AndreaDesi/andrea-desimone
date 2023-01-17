@@ -18,6 +18,28 @@ export default {
       error({ statusCode: 404, message: "Page not found" });
     }
   },
+  head() {
+    console.log(this.category.category)
+    return {
+      title: this.category.category,
+      meta: [
+        {
+          hid: "og-title",
+          name: "og:title",
+          content: this.category.category
+        },
+        {
+          name: "description",
+          content: this.category.category,
+        },
+        {
+          hid: "og-description",
+          property: "og:description",
+          content: this.category.category,
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -38,7 +60,7 @@ export default {
             </nuxt-link>
 
             <nuxt-link :to="project.data.category.url">
-              <p>{{ project.data.category.url}}</p>
+              <p>{{ project.data.category.data.category}}</p>
           </nuxt-link>
 
             <p>{{ $prismic.asText(project.data.date) }}</p>

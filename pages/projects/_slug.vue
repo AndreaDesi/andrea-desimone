@@ -1,5 +1,7 @@
 <script>
 export default {
+  
+  
   async asyncData({ $prismic, params, error, store }) {
     const project = await $prismic.api.getByUID("project", params.slug);
 
@@ -30,6 +32,29 @@ export default {
     } else {
       error({ statusCode: 404, message: "Page not found" });
     }
+  },
+
+  head() {
+
+    return {
+      title: this.project.title[0].text,
+      meta: [
+        {
+          hid: "og-title",
+          name: "og:title",
+          content: this.project.title[0].text
+        },
+        {
+          name: "description",
+          content: this.project.description[0].text,
+        },
+        {
+          hid: "og-description",
+          property: "og:description",
+          content: this.project.description[0].text,
+        },
+      ],
+    };
   },
 };
 </script>

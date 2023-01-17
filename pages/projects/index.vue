@@ -19,6 +19,28 @@ export default {
       error({ statusCode: 404, message: "Page not found" });
     }
   },
+  head() {
+
+    return {
+      title: "Projects",
+      meta: [
+        {
+          hid: "og-title",
+          name: "og:title",
+          content: "Projects"
+        },
+        {
+          name: "description",
+          content: "Projects listing",
+        },
+        {
+          hid: "og-description",
+          property: "og:description",
+          content: "Projects listing",
+        },
+      ],
+    };
+  },
 };
 </script>
 
