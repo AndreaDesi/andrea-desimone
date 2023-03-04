@@ -94,7 +94,7 @@ export default {
 
 .progetti-post {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 2fr 1fr;
   border-bottom: 1px solid black;
   margin-top: -1px;
   align-items: center;
@@ -102,8 +102,8 @@ export default {
 }
 
 .progetti-post p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .post-thumbnail {
