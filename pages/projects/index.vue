@@ -101,6 +101,11 @@ export default {
   grid-gap: 1rem;
 }
 
+.progetti-post p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .post-thumbnail {
   display: none;
   position: fixed;
