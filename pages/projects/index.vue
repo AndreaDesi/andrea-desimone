@@ -95,7 +95,7 @@ export default {
 .progetti-post {
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000;
   margin-top: -1px;
   align-items: center;
   grid-gap: 1rem;
