@@ -128,18 +128,16 @@ Responsive
   .home.container > .info {
     grid-row: auto;
   }
-  
+
   .home.container > .contacts {
     grid-column: 1;
     line-height: 1.4rem;
-    margin-bottom: 1em
+    margin-bottom: 1em;
   }
 
   .home.container > .social {
     grid-column: 1;
     line-height: 1.4rem;
   }
-
-
 }
 </style>

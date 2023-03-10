@@ -19,14 +19,14 @@ export default {
     }
   },
   head() {
-    console.log(this.category.category)
+    console.log(this.category.category);
     return {
       title: this.category.category,
       meta: [
         {
           hid: "og-title",
           name: "og:title",
-          content: this.category.category
+          content: this.category.category,
         },
         {
           name: "description",
@@ -46,32 +46,35 @@ export default {
 <template>
   <div>
     <Starly />
-      <div class="progetti container">
-        <div class="progetti-post-container">
-          <div class="progetti-post">
-            <h3 class="about-title">Project</h3>
-            <h3 class="about-title">Medium</h3>
-            <h3 class="about-title">Year</h3>
-          </div>
-          <div class="progetti-post progetti-hover" v-for="({ project }, i) in category.projects" :key="i">
-
-            <nuxt-link class="post-title" :to="`/projects/` + project.slug">
-              <p>{{ $prismic.asText(project.data.title) }}</p>
-            </nuxt-link>
-
-            <nuxt-link :to="project.data.category.url">
-              <p>{{ project.data.category.data.category}}</p>
+    <div class="progetti container">
+      <div class="progetti-post-container">
+        <div class="progetti-post">
+          <h3 class="about-title">Project</h3>
+          <h3 class="about-title">Medium</h3>
+          <h3 class="about-title">Year</h3>
+        </div>
+        <div
+          class="progetti-post progetti-hover"
+          v-for="({ project }, i) in category.projects"
+          :key="i"
+        >
+          <nuxt-link class="post-title" :to="`/projects/` + project.slug">
+            <p>{{ $prismic.asText(project.data.title) }}</p>
           </nuxt-link>
 
-            <p>{{ $prismic.asText(project.data.date) }}</p>
-            <div
+          <nuxt-link :to="project.data.category.url">
+            <p>{{ project.data.category.data.category }}</p>
+          </nuxt-link>
+
+          <p>{{ $prismic.asText(project.data.date) }}</p>
+          <div
             class="post-thumbnail"
             v-for="(img, index) in project.data.images"
             :key="index"
           >
             <img v-if="index === 0" :src="img.image.url" alt="" />
           </div>
-          </div>
+        </div>
       </div>
     </div>
   </div>

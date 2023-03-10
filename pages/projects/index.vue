@@ -20,14 +20,13 @@ export default {
     }
   },
   head() {
-
     return {
       title: "Projects",
       meta: [
         {
           hid: "og-title",
           name: "og:title",
-          content: "Projects"
+          content: "Projects",
         },
         {
           name: "description",

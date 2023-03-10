@@ -1,7 +1,5 @@
 <script>
 export default {
-  
-  
   async asyncData({ $prismic, params, error, store }) {
     const project = await $prismic.api.getByUID("project", params.slug);
 
@@ -35,14 +33,13 @@ export default {
   },
 
   head() {
-
     return {
       title: this.project.title[0].text,
       meta: [
         {
           hid: "og-title",
           name: "og:title",
-          content: this.project.title[0].text
+          content: this.project.title[0].text,
         },
         {
           name: "description",
@@ -72,31 +69,40 @@ export default {
         <div class="descrizione">
           <PrismicRichText :field="project.description" />
         </div>
-
       </div>
 
       <div class="project-carousel">
         <Carousel>
-          <div class="embla__slide w-full h-0 pb-[68.75%] relative"
-              v-for="(img, index) in project.images"
-              :key="index">
-            <img class="absolute top-0 left-0 w-full h-full cover"
+          <div
+            class="embla__slide w-full h-0 pb-[68.75%] relative"
+            v-for="(img, index) in project.images"
+            :key="index"
+          >
+            <img
+              class="absolute top-0 left-0 w-full h-full cover"
               :src="img.image.url"
               alt=""
             />
           </div>
-          
         </Carousel>
       </div>
     </div>
     <div class="grid container footer">
-        <nuxt-link class="indietro" v-if="prevProject !== undefined" :to="prevProject.url">
-          <p>← Previous project</p>
-        </nuxt-link>
-        <nuxt-link class="avanti" v-if="nextProject !== undefined" :to="nextProject.url">
-          <p>Next project →</p>
-        </nuxt-link>
-      </div>
+      <nuxt-link
+        class="indietro"
+        v-if="prevProject !== undefined"
+        :to="prevProject.url"
+      >
+        <p>← Previous project</p>
+      </nuxt-link>
+      <nuxt-link
+        class="avanti"
+        v-if="nextProject !== undefined"
+        :to="nextProject.url"
+      >
+        <p>Next project →</p>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -134,11 +140,11 @@ export default {
   text-align: left !important;
 }
 
-.project-info p{
- margin-top: 0;
+.project-info p {
+  margin-top: 0;
 }
 
-.project-info a{
+.project-info a {
   text-decoration: underline;
 }
 
@@ -198,6 +204,10 @@ Responsive
     margin-top: 0;
     margin-bottom: 0.5em;
     text-transform: uppercase;
+  }
+
+  .descrizione {
+    text-align: left;
   }
 }
 </style>

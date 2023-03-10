@@ -11,16 +11,15 @@ export default {
   },
 
   head() {
-
     return {
       title: "About",
       meta: [
         {
           hid: "og-title",
           name: "og:title",
-          content: "About"
-        }
-      ]
+          content: "About",
+        },
+      ],
     };
   },
 };
@@ -71,7 +70,7 @@ export default {
   grid-gap: 2rem;
 }
 
-.about a{
+.about a {
   text-decoration: underline;
 }
 
@@ -87,7 +86,7 @@ export default {
   grid-template-columns: 35% 35%;
 }
 
-.skills p{
+.skills p {
   margin-top: 0;
   margin-bottom: 3px;
 }
@@ -109,7 +108,7 @@ export default {
 
   .skills {
     grid-template-columns: 50% 50%;
-}
+  }
 
   .cv {
     grid-column: auto;
