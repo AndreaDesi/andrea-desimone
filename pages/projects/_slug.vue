@@ -59,7 +59,7 @@ export default {
 <template>
   <div>
     <Starly />
-    <div class="project grid container">
+    <div class="projectcontainer">
       <div class="project-testo">
         <PrismicRichText class="title redaction" :field="project.title" />
         <div class="project-info" v-for="(info, i) in project.info" :key="i">
@@ -111,6 +111,9 @@ export default {
   min-height: 80.5vh;
   place-items: start;
   margin-top: 2vh;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 1.5rem;
 }
 
 .title h1 {
@@ -123,7 +126,7 @@ export default {
 }
 
 .project-testo {
-  grid-column: 1 / span 4;
+  grid-column: 1;
 }
 
 .descrizione {
@@ -153,7 +156,7 @@ export default {
 }
 
 .project > .project-carousel {
-  grid-column: 5 / span 6;
+  grid-column: 2;
   width: 100%;
   max-height: 83vh;
   aspect-ratio: 16/11;
