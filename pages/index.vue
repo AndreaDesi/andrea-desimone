@@ -80,8 +80,8 @@ export default {
 }
 
 .home.container > .me {
-  grid-column: 1 / span 6;
-  font-size: calc(12px + (15 - 12) * ((100vw - 576px) / (2560 - 576)));
+  grid-column: 1 / span 5;
+  font-size: calc(13px + (17 - 13) * ((100vw - 576px) / (2560 - 576)));
   line-height: calc(1.2em * 1.1);
 }
 
