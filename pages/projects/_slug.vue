@@ -59,7 +59,7 @@ export default {
 <template>
   <div>
     <Starly />
-    <div class="projectcontainer">
+    <div class="project container">
       <div class="project-testo">
         <PrismicRichText class="title redaction" :field="project.title" />
         <div class="project-info" v-for="(info, i) in project.info" :key="i">
