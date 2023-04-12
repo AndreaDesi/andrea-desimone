@@ -112,7 +112,7 @@ export default {
   place-items: start;
   margin-top: 2vh;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1.5fr 2.5fr;
   grid-gap: 1.5rem;
 }
 
@@ -135,6 +135,7 @@ export default {
   -ms-hyphens: auto;
   hyphens: auto;
   margin-top: 1em;
+  text-indent: 13%;
 }
 
 .project-info {
