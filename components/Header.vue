@@ -31,7 +31,7 @@ export default {};
 
 <style scoped>
 nav {
-  height: 8.5vh;
+  height: 6.5vh;
   align-items: center;
   display: grid;
   align-content: stretch;
