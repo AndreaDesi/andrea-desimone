@@ -42,7 +42,7 @@ export default {
   },
 
   router: {
-    mode: 'hash'
+    mode: ''
   },
 
   prismic: {
