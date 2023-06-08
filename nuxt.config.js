@@ -1,5 +1,4 @@
 import smConfig from "./sm.json";
-import VueRouter from 'vue-router';
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -39,10 +38,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ["@prismicio/vue"],
-  },
-
-  router: {
-    mode: 'hash'
   },
 
   prismic: {
