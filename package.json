@@ -18,11 +18,11 @@
     "prismic.io": "^3.6.1",
     "vue": "^2.7.14",
     "vue-server-renderer": "^2.7.14",
-    "vue-template-compiler": "^2.7.14"
+    "vue-template-compiler": "^2.7.14",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.3",
     "slice-machine-ui": "^0.5.1"
   }
-
 }
