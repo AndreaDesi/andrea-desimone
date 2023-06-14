@@ -19,8 +19,8 @@ export default {
     <div class="home container">
       <div class="me">
         <PrismicRichText :field="home.data.bio" />
-        <PrismicLink :field="home.data.projects_link"
-          >↗ <u>See my projects</u></PrismicLink
+        <PrismicLink :field="home.data.projects_link">
+          ↗ <u>See my projects</u></PrismicLink
         >
       </div>
       <div class="info contacts">
