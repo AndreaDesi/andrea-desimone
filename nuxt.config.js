@@ -1,8 +1,27 @@
 import smConfig from "./sm.json";
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-@@ -14,110 +15,7 @@ export default {
+  target: "static",
+  ssr: false,
+  loading: false,
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  head: {
+    title: "Andrea De Simone",
+    htmlAttrs: {
+      lang: "en",
+    },
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
+      { name: "format-detection", content: "telephone=no" },
+    ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+  head() {
+    return {
+      title: "Home",
+      htmlAttrs: {
+        lang: "it",
       },
       titleTemplate: "%s - " + "Andrea De Simone",
       meta: [
@@ -113,10 +132,22 @@ export default {
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     };
-@@ -143,42 +41,17 @@ export default {
-    transpile: ["@prismicio/vue"],
   },
 
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: ["@/assets/style/global.css"],
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [],
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: ["@nuxtjs/prismic"],
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: ["@nuxtjs/prismic"],
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    transpile: ["@prismicio/vue"],
+  },
   prismic: {
     endpoint: smConfig.apiEndpoint,
     modern: true,
@@ -149,10 +180,9 @@ export default {
     //     case 'strong':
     //       return /* html */ `<span class="font-medium">${children.join('')}</span>`;
     //       break;
-
     //     default:
     //       break;
     //   }
     // },
   },
-};
+}
