@@ -119,7 +119,7 @@ export default {
 .title h1 {
   margin-top: 0;
   margin-bottom: 0.5em;
-  font-size: calc(40px + (60 - 40) * ((100vw - 576px) / (2560 - 576)));
+  font-size: calc(30px + (50 - 30) * ((100vw - 576px) / (2560 - 576)));
   text-transform: uppercase;
   text-align: left;
   font-weight: 500;

@@ -111,6 +111,7 @@ export default {
 .embla {
   overflow: hidden;
   position: absolute;
+  height: 100%;
 }
 .embla__container {
   display: flex;
