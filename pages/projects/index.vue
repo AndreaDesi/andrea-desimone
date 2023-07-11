@@ -108,7 +108,7 @@ export default {
 .post-thumbnail {
   display: none;
   position: fixed;
-  width: 15%;
+  width: 20%;
   bottom: 1.5%;
   right: 1.5%;
 }

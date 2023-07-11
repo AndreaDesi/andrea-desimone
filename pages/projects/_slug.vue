@@ -159,7 +159,7 @@ export default {
 .project > .project-carousel {
   grid-column: 2;
   width: 100%;
-  max-height: 83vh;
+  max-height: 80.5vh;
   aspect-ratio: 16/11;
   justify-self: right;
   padding: 0 !important;
