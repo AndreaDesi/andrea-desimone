@@ -111,6 +111,7 @@ export default {
   width: 20%;
   bottom: 1.5%;
   right: 1.5%;
+  rotate: 1.5deg;
 }
 
 .progetti-hover:hover .post-thumbnail {
