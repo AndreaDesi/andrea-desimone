@@ -108,7 +108,7 @@ export default {
 
 <style>
 .project {
-  min-height: 80.5vh;
+  min-height: 83.5vh;
   place-items: start;
   margin-top: 2vh;
   display: grid;
@@ -159,7 +159,7 @@ export default {
 .project > .project-carousel {
   grid-column: 2;
   width: 100%;
-  max-height: 80.5vh;
+  max-height: 83.5vh;
   aspect-ratio: 16/11;
   justify-self: right;
   padding: 0 !important;
