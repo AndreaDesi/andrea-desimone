@@ -165,7 +165,7 @@ export default {
   padding: 0 !important;
   margin: 0 !important;
   position: relative;
-  rotate: -1.5deg;
+  rotate: -1.1deg;
 }
 
 .footer {
