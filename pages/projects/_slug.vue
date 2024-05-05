@@ -130,7 +130,7 @@ export default {
 }
 
 .descrizione {
-  text-align: justify;
+  text-align: left;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
