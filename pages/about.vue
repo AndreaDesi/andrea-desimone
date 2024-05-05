@@ -63,7 +63,7 @@ export default {
 
 <style>
 .about {
-  min-height: 90vh;
+  min-height: 96vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(1, 1fr);

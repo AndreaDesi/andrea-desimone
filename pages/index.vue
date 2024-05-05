@@ -72,7 +72,7 @@ export default {
 
 <style scoped>
 .home {
-  min-height: 92vh;
+  min-height: 96vh;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -81,7 +81,7 @@ export default {
 
 .home.container > .me {
   grid-column: 1 / span 6;
-  font-size: calc(14px + (18 - 14) * ((100vw - 576px) / (2560 - 576)));
+  font-size: calc(12px + (15 - 12) * ((100vw - 576px) / (2560 - 576)));
   line-height: calc(1.2em * 1.1);
 }
 

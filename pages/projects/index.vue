@@ -88,7 +88,7 @@ export default {
 }
 
 .progetti-post-container {
-  grid-column: 1 / span 6;
+  grid-column: 1/span 10;
 }
 
 .progetti-post {
@@ -101,8 +101,8 @@ export default {
 }
 
 .progetti-post p {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .post-thumbnail {
