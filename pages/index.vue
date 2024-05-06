@@ -87,6 +87,8 @@ export default {
 
 .home .me p {
   text-indent: 10%;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .home .me a {
