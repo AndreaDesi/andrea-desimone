@@ -131,9 +131,12 @@ export default {
 
 .descrizione {
   text-align: left;
+<<<<<<< Updated upstream
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+=======
+>>>>>>> Stashed changes
   margin-top: 1em;
   text-indent: 13%;
 }
