@@ -156,7 +156,7 @@ export default {
 .project > .project-carousel {
   grid-column: 3;
   width: 100%;
-  max-height: 87.5vh;
+  max-height: 93vh;
   aspect-ratio: 16/11;
   justify-self: right;
   padding: 0 !important;
@@ -166,7 +166,7 @@ export default {
 }
 
 .footer {
-  height: 5vh;
+  height: 3.5vh;
   align-items: center;
 }
 
