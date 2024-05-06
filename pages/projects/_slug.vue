@@ -108,9 +108,9 @@ export default {
 
 <style>
 .project {
-  min-height: 91vh;
+  min-height: calc(91vh - 1em);
   place-items: start;
-  margin-top: 0vh;
+  margin-top: 1em;
   display: grid;
   grid-template-columns: 1.5fr 2.5fr;
   grid-gap: 1.5rem;
