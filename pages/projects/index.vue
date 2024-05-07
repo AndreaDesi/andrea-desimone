@@ -88,6 +88,7 @@ export default {
 }
 
 .progetti-post-container {
+  grid-column: 1 / span 10;
 }
 
 .progetti-post {
@@ -108,8 +109,8 @@ export default {
   display: none;
   position: fixed;
   width: 20%;
-  bottom: 1.5%;
-  right: 1.5%;
+  bottom: -0.5px%;
+  right: -0.5px%;
   rotate: 1.1deg;
 }
 
