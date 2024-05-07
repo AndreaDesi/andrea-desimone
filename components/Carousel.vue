@@ -62,9 +62,8 @@ export default {
       if (dir === "prev") {
         prevArrow.style.transform = `translate(${norm_x}px, ${norm_y}px)`;
       } else {
-        nextArrow.style.transform = `translate(${
-          norm_x - carouselInfo.width
-        }px, ${norm_y}px)`;
+        nextArrow.style.transform = `translate(${norm_x - carouselInfo.width
+          }px, ${norm_y}px)`;
       }
     };
 
@@ -72,7 +71,7 @@ export default {
       return (
         normalizedStart +
         ((normalizedEnd - normalizedStart) * (axis - rawStart)) /
-          (rawEnd - rawStart)
+        (rawEnd - rawStart)
       );
     };
 
@@ -87,20 +86,12 @@ export default {
       <slot />
     </div>
 
-    <button
-      @mouseleave="buttonLeave"
-      @mousemove="(e) => moveArrow(e, 'prev')"
-      class="hidden embla__button embla__button--prev"
-      type="button"
-    >
+    <button @mouseleave="buttonLeave" @mousemove="(e) => moveArrow(e, 'prev')"
+      class="hidden embla__button embla__button--prev" type="button">
       <span class="js-prev-arrow"><img src="/arrow-left.png" alt="" /></span>
     </button>
-    <button
-      @mouseleave="buttonLeave"
-      @mousemove="(e) => moveArrow(e, 'next')"
-      class="hidden embla__button embla__button--next"
-      type="button"
-    >
+    <button @mouseleave="buttonLeave" @mousemove="(e) => moveArrow(e, 'next')"
+      class="hidden embla__button embla__button--next" type="button">
       <span class="js-next-arrow"><img src="/arrow-right.png" alt="" /></span>
     </button>
   </div>
@@ -113,12 +104,15 @@ export default {
   position: absolute;
   height: 100%;
 }
+
 .embla__container {
   display: flex;
 }
+
 .embla__slide {
   flex: 0 0 100%;
 }
+
 .embla__button {
   outline: 0;
   cursor: none;
@@ -169,8 +163,8 @@ export default {
 @media (max-width: 992px) {
 
   .embla {
-  position: relative;
-}
+    position: relative;
+  }
 
   .embla__button--next .js-next-arrow {
     opacity: 0;

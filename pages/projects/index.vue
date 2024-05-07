@@ -53,11 +53,7 @@ export default {
           <h3 class="about-title">Medium</h3>
           <h3 class="about-title">Year</h3>
         </div>
-        <div
-          class="progetti-post progetti-hover"
-          v-for="({ project }, i) in projects"
-          :key="i"
-        >
+        <div class="progetti-post progetti-hover" v-for="({ project }, i) in projects" :key="i">
           <nuxt-link class="post-title" :to="project.url">
             <p>{{ $prismic.asText(project.data.title) }}</p>
           </nuxt-link>
@@ -68,11 +64,7 @@ export default {
 
           <p>{{ $prismic.asText(project.data.date) }}</p>
 
-          <div
-            class="post-thumbnail"
-            v-for="(img, index) in project.data.images"
-            :key="index"
-          >
+          <div class="post-thumbnail" v-for="(img, index) in project.data.images" :key="index">
             <img v-if="index === 0" :src="img.image.url" alt="" />
           </div>
         </div>
@@ -88,6 +80,7 @@ export default {
 }
 
 .progetti-post-container {
+  grid-column: 1/span 10;
 }
 
 .progetti-post {
@@ -108,14 +101,15 @@ export default {
   display: none;
   position: fixed;
   width: 20%;
-  bottom: 0.5%;
-  right: 0.5%;
+  bottom: 1.5%;
+  right: 1.5%;
   rotate: 1.1deg;
 }
 
 .progetti-hover:hover .post-thumbnail {
   display: block;
 }
+
 /*--------
 Responsive
 ----------*/
@@ -123,10 +117,12 @@ Responsive
   .progetti {
     grid-template-columns: repeat(1, 1fr);
   }
+
   .progetti-post-container {
     grid-column: 1;
   }
-  .post-title:hover ~ .post-thumbnail {
+
+  .post-title:hover~.post-thumbnail {
     display: none;
   }
 }

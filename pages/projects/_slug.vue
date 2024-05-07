@@ -73,33 +73,17 @@ export default {
 
       <div class="project-carousel">
         <Carousel>
-          <div
-            class="embla__slide w-full h-0 pb-[68.75%] relative"
-            v-for="(img, index) in project.images"
-            :key="index"
-          >
-            <img
-              class="absolute top-0 left-0 w-full h-full cover"
-              :src="img.image.url"
-              alt=""
-            />
+          <div class="embla__slide w-full h-0 pb-[68.75%] relative" v-for="(img, index) in project.images" :key="index">
+            <img class="absolute top-0 left-0 w-full h-full cover" :src="img.image.url" alt="" />
           </div>
         </Carousel>
       </div>
     </div>
     <div class="grid container footer">
-      <nuxt-link
-        class="indietro"
-        v-if="prevProject !== undefined"
-        :to="prevProject.url"
-      >
+      <nuxt-link class="indietro" v-if="prevProject !== undefined" :to="prevProject.url">
         <p>← Previous project</p>
       </nuxt-link>
-      <nuxt-link
-        class="avanti"
-        v-if="nextProject !== undefined"
-        :to="nextProject.url"
-      >
+      <nuxt-link class="avanti" v-if="nextProject !== undefined" :to="nextProject.url">
         <p>Next project →</p>
       </nuxt-link>
     </div>
@@ -153,7 +137,7 @@ export default {
   margin-bottom: 0.4em;
 }
 
-.project > .project-carousel {
+.project>.project-carousel {
   grid-column: 2;
   width: 100%;
   max-height: 91vh;
@@ -192,11 +176,11 @@ Responsive
     grid-column: 1;
   }
 
-  .project > .project-testo {
+  .project>.project-testo {
     grid-column: 1;
   }
 
-  .project > .project-carousel {
+  .project>.project-carousel {
     grid-column: 1;
     width: 100%;
     justify-self: center;
