@@ -2,23 +2,14 @@
   <nav>
     <div class="menu-nav-container">
       <ul id="menu-nav" class="menu">
-        <li
-          id="menu-item-77"
-          class="catcus menu-item-77"
-        >
+        <li id="menu-item-77" class="catcus menu-item-77">
           <nuxt-link to="/">✨︎</nuxt-link>
         </li>
-        <li
-          id="menu-item-78"
-          class="menu-item-78"
-        >
-        <nuxt-link to="/projects">Projects</nuxt-link>
+        <li id="menu-item-78" class="menu-item-78">
+          <nuxt-link to="/projects">Projects</nuxt-link>
         </li>
-        <li
-          id="menu-item-79"
-          class="menu-item-79"
-        >
-        <nuxt-link to="/about">About</nuxt-link>
+        <li id="menu-item-79" class="menu-item-79">
+          <nuxt-link to="/about">About</nuxt-link>
         </li>
       </ul>
     </div>
@@ -62,5 +53,4 @@ nav {
   text-align: right;
   text-transform: uppercase;
 }
-
 </style>

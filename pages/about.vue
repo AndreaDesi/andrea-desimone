@@ -54,9 +54,7 @@ export default {
         </div>
       </div>
 
-      <PrismicLink class="cv" :field="about.data.cv_link"
-        >Download CV</PrismicLink
-      >
+      <PrismicLink class="cv" :field="about.data.cv_link">Download CV</PrismicLink>
     </div>
   </div>
 </template>
