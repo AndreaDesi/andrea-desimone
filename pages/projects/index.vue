@@ -79,6 +79,7 @@ export default {
 }
 
 .progetti-post-container {
+    grid-column: 1 / span 10;
 }
 
 .progetti-post {
