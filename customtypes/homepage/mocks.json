@@ -1,0 +1,26 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "house"
+    },
+    "bio": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Cillum sunt cillum ut. Consequat sint commodo do nulla adipisicing qui nostrud. Pariatur tempor reprehenderit eiusmod."
+          }
+        }
+      ]
+    },
+    "projects_link": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "__TYPE__": "ExternalLink",
+        "url": "https://slicemachine.dev"
+      }
+    }
+  }
+]

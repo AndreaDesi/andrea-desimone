@@ -1,0 +1,125 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "bound"
+    },
+    "work_experience": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "content",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Sunt eu ut tempor eu ipsum in magna occaecat consequat nostrud velit laboris anim ea sit. Adipisicing laborum do elit aute voluptate occaecat officia officia."
+                    }
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "education": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "content",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Nulla Lorem deserunt cillum cupidatat cillum nostrud commodo magna. In esse commodo tempor ad enim non in aliqua deserunt quis anim id nostrud."
+                    }
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "languages": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "content",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "In officia deserunt occaecat ad aliqua deserunt minim eiusmod veniam commodo non sint deserunt."
+                    }
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "skills": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "skill_sx",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Veniam consectetur magna eu id eiusmod sint aliqua eu aliquip labore. Exercitation nisi occaecat commodo et excepteur cupidatat ipsum eiusmod exercitation ut proident irure quis sit. Sint quis laboris enim est nisi Lorem dolore sit laboris quis magna culpa elit dolor nisi."
+                    }
+                  }
+                ]
+              }
+            ],
+            [
+              "skill_dx",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Consectetur sit occaecat sit aliquip cillum laborum fugiat aliquip deserunt labore. Reprehenderit officia dolore excepteur qui est cupidatat amet elit labore est. Non consectetur qui sint mollit pariatur veniam laboris aliqua reprehenderit."
+                    }
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "cv_link": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "__TYPE__": "ExternalLink",
+        "url": "http://google.com"
+      }
+    }
+  }
+]

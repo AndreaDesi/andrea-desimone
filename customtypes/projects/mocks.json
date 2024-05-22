@@ -1,0 +1,28 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "fly"
+    },
+    "projects": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "project",
+              {
+                "__TYPE__": "LinkContent",
+                "value": {
+                  "__TYPE__": "DocumentLink",
+                  "id": "mock_document_id"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  }
+]

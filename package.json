@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.3",
-    "slice-machine-ui": "^0.5.1"
+    "@slicemachine/adapter-nuxt2": "^0.3.38",
+    "slice-machine-ui": "^1.26.0"
   }
 }
