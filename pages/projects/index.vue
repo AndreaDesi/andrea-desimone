@@ -84,7 +84,7 @@ export default {
 
 .progetti-post {
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr !important;
+  grid-template-columns: 3fr 2fr 1fr;
   border-bottom: 1px solid #000;
   margin-top: -1px;
   align-items: center;
@@ -102,7 +102,7 @@ export default {
   width: 20%;
   bottom: 0.5%;
   right: 0.5%;
-  rotate: 1.1deg;
+  transform: rotate(1.1deg);
 }
 
 .progetti-hover:hover .post-thumbnail {

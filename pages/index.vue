@@ -63,7 +63,7 @@ export default {
   grid-gap: 1rem;
 }
 
-.home.container>.me {
+.home>.me {
   grid-column: 1 / span 6;
   font-size: calc(12px + (15 - 12) * ((100vw - 576px) / (2560 - 576)));
   line-height: calc(1.2em * 1.1);
