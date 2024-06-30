@@ -76,12 +76,11 @@ export default {
 <style>
 .progetti {
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
-  grid-gap: 1rem;
 }
 
 .progetti-post-container {
-
+  grid-template-columns: 3fr 2fr 1fr;
+  grid-gap: 1rem;
 }
 
 .progetti-post {
