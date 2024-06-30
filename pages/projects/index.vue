@@ -79,14 +79,16 @@ export default {
 }
 
 .progetti-post-container {
-  grid-template-columns: 3fr 2fr 1fr;
-  grid-gap: 1rem;
+  grid-column: 1 / span 10 !important;
 }
 
 .progetti-post {
   border-bottom: 1px solid #000;
   margin-top: -1px;
+  grid-template-columns: 3fr 2fr 1fr;
+  grid-gap: 1rem;
   align-items: center;
+
 }
 
 .progetti-post p {
