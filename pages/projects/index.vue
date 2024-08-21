@@ -97,7 +97,9 @@ export default {
   margin-bottom: 7px;
 }
 
-.about-title {
+.about-title h3 {
+  margin-bottom: 7px;
+  margin-top: 0.83em;
   font-family: "Redaction 10";
   font-style: italic;
   font-weight: 500;
