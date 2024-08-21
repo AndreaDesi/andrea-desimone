@@ -49,9 +49,9 @@ export default {
     <div class="progetti container">
       <div class="progetti-post-container">
         <div class="progetti-post">
-          <h2 class="about-title">Project</h2>
-          <h2 class="about-title">Medium</h2>
-          <h2 class="about-title">Year</h2>
+          <h3 class="about-title">Project</h3>
+          <h3 class="about-title">Medium</h3>
+          <h3 class="about-title">Year</h3>
         </div>
         <div class="progetti-post progetti-hover" v-for="({ project }, i) in projects" :key="i">
           <nuxt-link class="post-title" :to="project.url">
