@@ -3,10 +3,10 @@
     <div class="menu-nav-container">
       <ul id="menu-nav" class="menu">
         <li id="menu-item-77" class="catcus menu-item-77">
-          <nuxt-link to="/">✨︎</nuxt-link>
+          <nuxt-link to="/">Andrea De Simone✨︎</nuxt-link>
         </li>
         <li id="menu-item-78" class="menu-item-78">
-          <nuxt-link to="/projects">Projects</nuxt-link>
+          <nuxt-link to="/projects">Work</nuxt-link>
         </li>
         <li id="menu-item-79" class="menu-item-79">
           <nuxt-link to="/about">About</nuxt-link>
@@ -22,6 +22,10 @@ export default {};
 
 <style scoped>
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: white;
   height: 3.5vh;
   align-items: center;
   display: grid;
@@ -39,18 +43,14 @@ nav {
 
 #menu-item-77 {
   grid-column: 1;
-  font-size: calc(1.1em * 1.2);
+  white-space: nowrap;
 }
 
 #menu-item-78 {
-  grid-column: 9;
-  text-align: right;
-  text-transform: uppercase;
+  grid-column: 3;
 }
 
 #menu-item-79 {
-  grid-column: 10;
-  text-align: right;
-  text-transform: uppercase;
+  grid-column: 4;
 }
 </style>

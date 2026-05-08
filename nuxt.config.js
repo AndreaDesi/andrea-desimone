@@ -4,6 +4,33 @@ export default {
   target: "static",
   ssr: false,
   loading: false,
+  pageTransition: {
+    name: "page",
+    mode: "",
+    beforeLeave(el) {
+      const scrollY = window.scrollY || window.pageYOffset;
+      el.style.position = "fixed";
+      el.style.top = "0";
+      el.style.left = "0";
+      el.style.width = "100%";
+      el.style.height = "100vh";
+      el.style.overflowY = "hidden";
+      el.scrollTop = scrollY;
+    },
+  },
+  router: {
+    scrollBehavior(to, from, savedPosition) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          if (savedPosition) {
+            resolve(savedPosition);
+          } else {
+            resolve({ x: 0, y: 0 });
+          }
+        }, 800);
+      });
+    },
+  },
   head: {
     title: "Andrea De Simone",
     htmlAttrs: {

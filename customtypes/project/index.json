@@ -3,6 +3,7 @@
   "label": "Project",
   "repeatable": true,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "uid": {
@@ -26,9 +27,7 @@
         "config": {
           "label": "category",
           "select": "document",
-          "customtypes": [
-            "category"
-          ]
+          "customtypes": ["category"]
         }
       },
       "date": {
@@ -86,6 +85,14 @@
                 "label": "image",
                 "constraint": {},
                 "thumbnails": []
+              }
+            },
+            "columns": {
+              "type": "Select",
+              "config": {
+                "label": "columns",
+                "placeholder": "",
+                "options": ["1", "2", "3", "4"]
               }
             }
           }

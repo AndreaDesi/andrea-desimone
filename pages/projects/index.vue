@@ -46,27 +46,19 @@ export default {
 <template>
   <div>
     <Starly />
-    <div class="progetti container">
-      <div class="progetti-post-container">
-        <div class="progetti-post">
-          <h3 class="about-title">Project</h3>
-          <h3 class="about-title">Medium</h3>
-          <h3 class="about-title">Year</h3>
-        </div>
-        <div class="progetti-post progetti-hover" v-for="({ project }, i) in projects" :key="i">
-          <nuxt-link class="post-title" :to="project.url">
-            <p>{{ $prismic.asText(project.data.title) }}</p>
+    <div class="progetti-container">
+      <div class="grid-wrapper">
+        <div v-for="({ project }, i) in projects" :key="i" class="grid-item">
+          <nuxt-link :to="project.url" class="project-link">
+            <div class="project-info-top">
+              <span class="project-name">{{ $prismic.asText(project.data.title) }}</span>
+            </div>
+            <div class="project-image-box">
+              <div v-for="(img, index) in project.data.images" :key="index">
+                <img v-if="index === 0" :src="img.image.url" :alt="img.image.alt" />
+              </div>
+            </div>
           </nuxt-link>
-
-          <nuxt-link :to="project.data.category.url">
-            <p>{{ project.data.category.data.category }}</p>
-          </nuxt-link>
-
-          <p>{{ $prismic.asText(project.data.date) }}</p>
-
-          <div class="post-thumbnail" v-for="(img, index) in project.data.images" :key="index">
-            <img v-if="index === 0" :src="img.image.url" alt="" />
-          </div>
         </div>
       </div>
     </div>
@@ -74,65 +66,67 @@ export default {
 </template>
 
 <style>
-.progetti {
+.progetti-container {
+  width: auto;
+  padding: 0 20px; 
+  margin-top: 50px;
+}
+
+.grid-wrapper {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 40px;
 }
 
-.progetti-post-container {
-  grid-column: 1 / span 10 !important;
+.grid-item {
+  position: relative;
 }
 
-.progetti-post {
-  border-bottom: 1px solid #000;
-  margin-top: -1px;
-  display: grid;
-  grid-template-columns: 3fr 2fr 1fr !important;
-  grid-gap: 1rem;
-  align-items: center;
-
+.project-link {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
 }
 
-.progetti-post p {
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
-
-.about-title h3 {
-  margin-bottom: 7px;
-  margin-top: 0.83em;
-  font-family: "Redaction 10";
-  font-style: italic;
-  font-weight: 500;
+.project-info-top {
+  padding: 10px 0;
   text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  background-color: transparent; 
 }
 
-.post-thumbnail {
-  display: none;
-  position: fixed;
-  width: 20%;
-  bottom: 0.5%;
-  right: 0.5%;
-  transform: rotate(1.1deg);
+.project-image-box {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background-color: #1a0f0f;
+  overflow: hidden;
 }
 
-.progetti-hover:hover .post-thumbnail {
+.project-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  filter: grayscale(20%);
 }
 
-/*--------
-Responsive
-----------*/
-@media (max-width: 992px) {
-  .progetti {
-    grid-template-columns: repeat(1, 1fr);
-  }
+.grid-item:hover .project-image-box img {
+  opacity: 0.8;
+}
 
-  .progetti-post-container {
-    grid-column: 1;
+@media (max-width: 1024px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .post-title:hover~.post-thumbnail {
-    display: none;
+@media (max-width: 600px) {
+  .grid-wrapper {
+    grid-template-columns: 1fr;
   }
 }
 </style>

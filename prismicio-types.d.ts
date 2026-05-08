@@ -3,405 +3,568 @@
 import type * as prismic from "@prismicio/types";
 import type * as prismicClient from "@prismicio/client";
 
-type Simplify<T> = {
-    [KeyType in keyof T]: T[KeyType];
-};
-/** Content for About documents */
-interface AboutDocumentData {
-    /**
-     * work_experience field in *About*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.work_experience[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    work_experience: prismic.GroupField<Simplify<AboutDocumentDataWorkExperienceItem>>;
-    /**
-     * education field in *About*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.education[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    education: prismic.GroupField<Simplify<AboutDocumentDataEducationItem>>;
-    /**
-     * languages field in *About*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.languages[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    languages: prismic.GroupField<Simplify<AboutDocumentDataLanguagesItem>>;
-    /**
-     * skills field in *About*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.skills[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    skills: prismic.GroupField<Simplify<AboutDocumentDataSkillsItem>>;
-    /**
-     * cv_link field in *About*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.cv_link
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    cv_link: prismic.LinkField;
-}
+type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
+
+type PickContentRelationshipFieldData<
+  TRelationship extends
+    | prismic.CustomTypeModelFetchCustomTypeLevel1
+    | prismic.CustomTypeModelFetchCustomTypeLevel2
+    | prismic.CustomTypeModelFetchGroupLevel1
+    | prismic.CustomTypeModelFetchGroupLevel2,
+  TData extends Record<
+    string,
+    | prismic.AnyRegularField
+    | prismic.GroupField
+    | prismic.NestedGroupField
+    | prismic.SliceZone
+  >,
+  TLang extends string,
+> =
+  // Content relationship fields
+  {
+    [TSubRelationship in Extract<
+      TRelationship["fields"][number],
+      prismic.CustomTypeModelFetchContentRelationshipLevel1
+    > as TSubRelationship["id"]]: ContentRelationshipFieldWithData<
+      TSubRelationship["customtypes"],
+      TLang
+    >;
+  } & // Group
+  {
+    [TGroup in Extract<
+      TRelationship["fields"][number],
+      | prismic.CustomTypeModelFetchGroupLevel1
+      | prismic.CustomTypeModelFetchGroupLevel2
+    > as TGroup["id"]]: TData[TGroup["id"]] extends prismic.GroupField<
+      infer TGroupData
+    >
+      ? prismic.GroupField<
+          PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
+        >
+      : never;
+  } & // Other fields
+  {
+    [TFieldKey in Extract<
+      TRelationship["fields"][number],
+      string
+    >]: TFieldKey extends keyof TData ? TData[TFieldKey] : never;
+  };
+
+type ContentRelationshipFieldWithData<
+  TCustomType extends
+    | readonly (prismic.CustomTypeModelFetchCustomTypeLevel1 | string)[]
+    | readonly (prismic.CustomTypeModelFetchCustomTypeLevel2 | string)[],
+  TLang extends string = string,
+> = {
+  [ID in Exclude<
+    TCustomType[number],
+    string
+  >["id"]]: prismic.ContentRelationshipField<
+    ID,
+    TLang,
+    PickContentRelationshipFieldData<
+      Extract<TCustomType[number], { id: ID }>,
+      Extract<prismic.Content.AllDocumentTypes, { type: ID }>["data"],
+      TLang
+    >
+  >;
+}[Exclude<TCustomType[number], string>["id"]];
+
 /**
- * Item in About → work_experience
- *
+ * Item in *About → work_experience*
  */
 export interface AboutDocumentDataWorkExperienceItem {
-    /**
-     * content field in *About → work_experience*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.work_experience[].content
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    content: prismic.RichTextField;
+  /**
+   * content field in *About → work_experience*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.work_experience[].content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
 }
+
 /**
- * Item in About → education
- *
+ * Item in *About → education*
  */
 export interface AboutDocumentDataEducationItem {
-    /**
-     * content field in *About → education*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.education[].content
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    content: prismic.RichTextField;
+  /**
+   * content field in *About → education*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education[].content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
 }
+
 /**
- * Item in About → languages
- *
+ * Item in *About → languages*
  */
 export interface AboutDocumentDataLanguagesItem {
-    /**
-     * content field in *About → languages*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.languages[].content
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    content: prismic.RichTextField;
+  /**
+   * content field in *About → languages*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.languages[].content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
 }
+
 /**
- * Item in About → skills
- *
+ * Item in *About → skills*
  */
 export interface AboutDocumentDataSkillsItem {
-    /**
-     * skill_sx field in *About → skills*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.skills[].skill_sx
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    skill_sx: prismic.RichTextField;
-    /**
-     * skill_dx field in *About → skills*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: about.skills[].skill_dx
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    skill_dx: prismic.RichTextField;
+  /**
+   * skill_sx field in *About → skills*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.skills[].skill_sx
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  skill_sx: prismic.RichTextField;
+
+  /**
+   * skill_dx field in *About → skills*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.skills[].skill_dx
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  skill_dx: prismic.RichTextField;
 }
+
+/**
+ * Content for About documents
+ */
+interface AboutDocumentData {
+  /**
+   * work_experience field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.work_experience[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  work_experience: prismic.GroupField<
+    Simplify<AboutDocumentDataWorkExperienceItem>
+  >;
+
+  /**
+   * education field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  education: prismic.GroupField<Simplify<AboutDocumentDataEducationItem>>;
+
+  /**
+   * languages field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.languages[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  languages: prismic.GroupField<Simplify<AboutDocumentDataLanguagesItem>>;
+
+  /**
+   * skills field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.skills[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  skills: prismic.GroupField<Simplify<AboutDocumentDataSkillsItem>>;
+
+  /**
+   * cv_link field in *About*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.cv_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cv_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
 /**
  * About document from Prismic
  *
  * - **API ID**: `about`
  * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type AboutDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
-/** Content for Category documents */
-interface CategoryDocumentData {
-    /**
-     * category field in *Category*
-     *
-     * - **Field Type**: Select
-     * - **Placeholder**: *None*
-     * - **Default Value**: Brand design ©
-     * - **API ID Path**: category.category
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/select
-     *
-     */
-    category: prismic.SelectField<"Brand design ©" | "UX/UI design @" | "Editorial design ¶" | "Motion design ►", "filled">;
-    /**
-     * projects field in *Category*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: category.projects[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    projects: prismic.GroupField<Simplify<CategoryDocumentDataProjectsItem>>;
-}
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
+
 /**
- * Item in Category → projects
- *
+ * Item in *Category → projects*
  */
 export interface CategoryDocumentDataProjectsItem {
-    /**
-     * project field in *Category → projects*
-     *
-     * - **Field Type**: Content Relationship
-     * - **Placeholder**: *None*
-     * - **API ID Path**: category.projects[].project
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    project: prismic.ContentRelationshipField<"project">;
+  /**
+   * project field in *Category → projects*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: category.projects[].project
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  project: prismic.ContentRelationshipField<"project">;
 }
+
+/**
+ * Content for Category documents
+ */
+interface CategoryDocumentData {
+  /**
+   * category field in *Category*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Brand design ©
+   * - **API ID Path**: category.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  category: prismic.SelectField<
+    | "Brand design ©"
+    | "UX/UI design @"
+    | "Editorial design ¶"
+    | "Motion design ►",
+    "filled"
+  >;
+
+  /**
+   * projects field in *Category*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: category.projects[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  projects: prismic.GroupField<Simplify<CategoryDocumentDataProjectsItem>>;
+}
+
 /**
  * Category document from Prismic
  *
  * - **API ID**: `category`
  * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type CategoryDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<CategoryDocumentData>, "category", Lang>;
-/** Content for Homepage documents */
+export type CategoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CategoryDocumentData>,
+    "category",
+    Lang
+  >;
+
+/**
+ * Content for Homepage documents
+ */
 interface HomepageDocumentData {
-    /**
-     * bio field in *Homepage*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homepage.bio
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    bio: prismic.RichTextField;
-    /**
-     * projects_link field in *Homepage*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homepage.projects_link
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    projects_link: prismic.LinkField;
+  /**
+   * bio field in *Homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.bio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  bio: prismic.RichTextField;
+
+  /**
+   * projects_link field in *Homepage*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.projects_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  projects_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
+
 /**
  * Homepage document from Prismic
  *
  * - **API ID**: `homepage`
  * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
-/** Content for Project documents */
-interface ProjectDocumentData {
-    /**
-     * title field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.title
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismic.RichTextField;
-    /**
-     * category field in *Project*
-     *
-     * - **Field Type**: Content Relationship
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.category
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    category: prismic.ContentRelationshipField<"category">;
-    /**
-     * date field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.date
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    date: prismic.RichTextField;
-    /**
-     * Info field in *Project*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.info[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    info: prismic.GroupField<Simplify<ProjectDocumentDataInfoItem>>;
-    /**
-     * description field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.description
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismic.RichTextField;
-    /**
-     * images field in *Project*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.images[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
-}
+export type HomepageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<HomepageDocumentData>,
+    "homepage",
+    Lang
+  >;
+
 /**
- * Item in Project → Info
- *
+ * Item in *Project → Info*
  */
 export interface ProjectDocumentDataInfoItem {
-    /**
-     * row_title field in *Project → Info*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.info[].row_title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    row_title: prismic.RichTextField;
-    /**
-     * row_content field in *Project → Info*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.info[].row_content
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    row_content: prismic.RichTextField;
+  /**
+   * row_title field in *Project → Info*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.info[].row_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  row_title: prismic.RichTextField;
+
+  /**
+   * row_content field in *Project → Info*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.info[].row_content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  row_content: prismic.RichTextField;
 }
+
 /**
- * Item in Project → images
- *
+ * Item in *Project → images*
  */
 export interface ProjectDocumentDataImagesItem {
-    /**
-     * image field in *Project → images*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.images[].image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    image: prismic.ImageField<never>;
+  /**
+   * image field in *Project → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * columns field in *Project → images*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[].columns
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  columns: prismic.SelectField<"1" | "2" | "3" | "4">;
 }
+
+/**
+ * Content for Project documents
+ */
+interface ProjectDocumentData {
+  /**
+   * title field in *Project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * category field in *Project*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: prismic.ContentRelationshipField<"category">;
+
+  /**
+   * date field in *Project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  date: prismic.RichTextField;
+
+  /**
+   * Info field in *Project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.info[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  info: prismic.GroupField<Simplify<ProjectDocumentDataInfoItem>>;
+
+  /**
+   * description field in *Project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * images field in *Project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
+}
+
 /**
  * Project document from Prismic
  *
  * - **API ID**: `project`
  * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ProjectDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
-/** Content for Projects documents */
-interface ProjectsDocumentData {
-    /**
-     * projects field in *Projects*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: projects.projects[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    projects: prismic.GroupField<Simplify<ProjectsDocumentDataProjectsItem>>;
-}
+export type ProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectDocumentData>,
+    "project",
+    Lang
+  >;
+
 /**
- * Item in Projects → projects
- *
+ * Item in *Projects → projects*
  */
 export interface ProjectsDocumentDataProjectsItem {
-    /**
-     * project field in *Projects → projects*
-     *
-     * - **Field Type**: Content Relationship
-     * - **Placeholder**: *None*
-     * - **API ID Path**: projects.projects[].project
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    project: prismic.ContentRelationshipField<"project">;
+  /**
+   * project field in *Projects → projects*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.projects[].project
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  project: prismic.ContentRelationshipField<"project">;
 }
+
+/**
+ * Content for Projects documents
+ */
+interface ProjectsDocumentData {
+  /**
+   * projects field in *Projects*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.projects[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  projects: prismic.GroupField<Simplify<ProjectsDocumentDataProjectsItem>>;
+}
+
 /**
  * Projects document from Prismic
  *
  * - **API ID**: `projects`
  * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ProjectsDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<ProjectsDocumentData>, "projects", Lang>;
-export type AllDocumentTypes = AboutDocument | CategoryDocument | HomepageDocument | ProjectDocument | ProjectsDocument;
+export type ProjectsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectsDocumentData>,
+    "projects",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | AboutDocument
+  | CategoryDocument
+  | HomepageDocument
+  | ProjectDocument
+  | ProjectsDocument;
+
 declare module "@prismicio/client" {
-    interface CreateClient {
-        (repositoryNameOrEndpoint: string, options?: prismicClient.ClientConfig): prismicClient.Client<AllDocumentTypes>;
-    }
-    namespace Content {
-        export type { AboutDocumentData, AboutDocumentDataWorkExperienceItem, AboutDocumentDataEducationItem, AboutDocumentDataLanguagesItem, AboutDocumentDataSkillsItem, AboutDocument, CategoryDocumentData, CategoryDocumentDataProjectsItem, CategoryDocument, HomepageDocumentData, HomepageDocument, ProjectDocumentData, ProjectDocumentDataInfoItem, ProjectDocumentDataImagesItem, ProjectDocument, ProjectsDocumentData, ProjectsDocumentDataProjectsItem, ProjectsDocument, AllDocumentTypes };
-    }
+  interface CreateClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options?: prismicClient.ClientConfig,
+    ): prismicClient.Client<AllDocumentTypes>;
+  }
+
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismicClient.WriteClientConfig,
+    ): prismicClient.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismicClient.Migration<AllDocumentTypes>;
+  }
+
+  namespace Content {
+    export type {
+      AboutDocument,
+      AboutDocumentData,
+      AboutDocumentDataWorkExperienceItem,
+      AboutDocumentDataEducationItem,
+      AboutDocumentDataLanguagesItem,
+      AboutDocumentDataSkillsItem,
+      CategoryDocument,
+      CategoryDocumentData,
+      CategoryDocumentDataProjectsItem,
+      HomepageDocument,
+      HomepageDocumentData,
+      ProjectDocument,
+      ProjectDocumentData,
+      ProjectDocumentDataInfoItem,
+      ProjectDocumentDataImagesItem,
+      ProjectsDocument,
+      ProjectsDocumentData,
+      ProjectsDocumentDataProjectsItem,
+      AllDocumentTypes,
+    };
+  }
 }
