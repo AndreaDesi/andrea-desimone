@@ -73,7 +73,7 @@ export default {
       
       <div class="project-header-row">
         <div class="title-col">
-          <PrismicRichText class="title redaction" :field="project.title" />
+          <PrismicRichText class="title" :field="project.title" />
         </div>
         
         <div class="info-col">
@@ -115,10 +115,14 @@ export default {
 </template>
 
 <style scoped>
+.project {
+  font-family: "Catcus Semibold", sans-serif;
+}
+
 .project-header-row {
   display: grid;
   grid-template-columns: 2fr 3fr 7fr; 
-  grid-gap: 2rem;
+  column-gap: 5px;
   align-items: start;
   margin-bottom: 4rem;
   margin-top: 2rem;
@@ -126,22 +130,25 @@ export default {
 
 .title :deep(h1) {
   margin-top: 0;
-  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: inherit;
   text-transform: uppercase;
-  font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .project-info {
   display: grid;
   grid-template-columns: 90px 1fr;
   margin-bottom: 0.3rem;
-  font-size: 0.85rem;
 }
 
-.info-label :deep(p) { margin: 0; text-transform: uppercase; font-weight: bold; }
+.info-label :deep(p) { margin: 0; text-transform: uppercase; }
 .info-value :deep(p) { margin: 0; }
-.descrizione { font-size: 0.95rem; line-height: 1.4; }
+.info-value :deep(a) { text-decoration: underline; }
+.descrizione { line-height: 1.4; }
+.descrizione :deep(p) { text-indent: 10%; margin-top: 0; margin-bottom: 0.8em; }
+.descrizione :deep(p:first-child) { text-indent: 0; }
 
 .project-gallery-grid {
   display: grid;

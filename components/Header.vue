@@ -30,6 +30,7 @@ nav {
   align-items: center;
   display: grid;
   align-content: stretch;
+  font-family: "Catcus Semibold", sans-serif;
 }
 
 

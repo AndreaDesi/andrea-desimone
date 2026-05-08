@@ -17,6 +17,19 @@ export default {
       el.style.overflowY = "hidden";
       el.scrollTop = scrollY;
     },
+    beforeEnter(el) {
+      el.style.position = "fixed";
+      el.style.top = "0";
+      el.style.left = "0";
+      el.style.width = "100%";
+    },
+    afterEnter(el) {
+      el.style.position = "";
+      el.style.top = "";
+      el.style.left = "";
+      el.style.width = "";
+      window.scrollTo(0, 0);
+    },
   },
   router: {
     scrollBehavior(to, from, savedPosition) {

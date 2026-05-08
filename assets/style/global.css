@@ -1,6 +1,13 @@
 @font-face {
   font-family: "Catcus Grotesk";
   src: url("/font/Catcus-Grotesk.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Catcus Semibold";
+  src: url("/font/Catcus-Semibold.ttf");
+  font-weight: 600;
 }
 
 @font-face {

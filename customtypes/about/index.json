@@ -12,6 +12,15 @@
           "placeholder": ""
         }
       },
+      "bio": {
+        "type": "StructuredText",
+        "config": {
+          "label": "bio",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink"
+        }
+      },
       "work_experience": {
         "type": "Group",
         "config": {
@@ -46,10 +55,10 @@
           }
         }
       },
-      "languages": {
+      "awards": {
         "type": "Group",
         "config": {
-          "label": "languages",
+          "label": "awards",
           "fields": {
             "content": {
               "type": "StructuredText",
@@ -63,24 +72,15 @@
           }
         }
       },
-      "skills": {
+      "clients_collaborations": {
         "type": "Group",
         "config": {
-          "label": "skills",
+          "label": "clients_collaborations",
           "fields": {
-            "skill_sx": {
+            "content": {
               "type": "StructuredText",
               "config": {
-                "label": "skill_sx",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-              }
-            },
-            "skill_dx": {
-              "type": "StructuredText",
-              "config": {
-                "label": "skill_dx",
+                "label": "content",
                 "placeholder": "",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
