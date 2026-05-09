@@ -3,7 +3,9 @@
     <div class="menu-nav-container">
       <ul id="menu-nav" class="menu">
         <li id="menu-item-77" class="catcus menu-item-77">
-          <nuxt-link to="/">Andrea De Simone✨︎</nuxt-link>
+          <nuxt-link to="/">
+            <span class="name-text" :class="{ hidden: scrolled }">Andrea De Simone</span>✨︎
+          </nuxt-link>
         </li>
         <li id="menu-item-78" class="menu-item-78">
           <nuxt-link to="/projects">Work</nuxt-link>
@@ -17,7 +19,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return { scrolled: false };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      this.scrolled = window.scrollY > 30;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -32,7 +49,6 @@ nav {
   align-content: stretch;
   font-family: "Catcus Semibold", sans-serif;
 }
-
 
 #menu-nav {
   display: grid;
@@ -53,5 +69,20 @@ nav {
 
 #menu-item-79 {
   grid-column: 4;
+}
+
+.name-text {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  opacity: 1;
+  white-space: nowrap;
+  vertical-align: bottom;
+  transition: max-width 0.5s ease, opacity 0.4s ease;
+}
+
+.name-text.hidden {
+  max-width: 0;
+  opacity: 0;
 }
 </style>

@@ -68,15 +68,14 @@ export default {
 <style>
 .progetti-container {
   width: auto;
-  padding: 0 20px; 
-  margin-top: 50px;
+  gap: 5px;
+  margin-top: 24px;
 }
 
 .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 20px;
-  row-gap: 40px;
+  gap: 5px;
 }
 
 .grid-item {
@@ -96,7 +95,8 @@ export default {
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.5px;
-  background-color: transparent; 
+  background-color: transparent;
+  font-family: "Catcus Semibold", sans-serif;
 }
 
 .project-image-box {

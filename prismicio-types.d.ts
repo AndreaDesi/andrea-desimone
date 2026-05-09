@@ -141,9 +141,50 @@ export interface AboutDocumentDataSkillsItem {
 }
 
 /**
+ * Item in *About → awards*
+ */
+export interface AboutDocumentDataAwardsItem {
+  /**
+   * awards field in *About → awards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.awards[].awards
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  awards: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → clients_collaborations*
+ */
+export interface AboutDocumentDataClientsCollaborationsItem {
+  /**
+   * clients_collaborations field in *About → clients_collaborations*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.clients_collaborations[].clients_collaborations
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  clients_collaborations: prismic.RichTextField;
+}
+
+/**
  * Content for About documents
  */
 interface AboutDocumentData {
+  /**
+   * bio field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.bio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  bio: prismic.RichTextField;
+
   /**
    * work_experience field in *About*
    *
@@ -189,6 +230,30 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   skills: prismic.GroupField<Simplify<AboutDocumentDataSkillsItem>>;
+
+  /**
+   * awards field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.awards[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  awards: prismic.GroupField<Simplify<AboutDocumentDataAwardsItem>>;
+
+  /**
+   * clients_collaborations field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.clients_collaborations[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  clients_collaborations: prismic.GroupField<
+    Simplify<AboutDocumentDataClientsCollaborationsItem>
+  >;
 
   /**
    * cv_link field in *About*
@@ -552,6 +617,8 @@ declare module "@prismicio/client" {
       AboutDocumentDataEducationItem,
       AboutDocumentDataLanguagesItem,
       AboutDocumentDataSkillsItem,
+      AboutDocumentDataAwardsItem,
+      AboutDocumentDataClientsCollaborationsItem,
       CategoryDocument,
       CategoryDocumentData,
       CategoryDocumentDataProjectsItem,

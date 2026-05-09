@@ -22,6 +22,16 @@ export default {
       ],
     };
   },
+
+  mounted() {
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  },
+
+  beforeDestroy() {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  },
 };
 </script>
 
@@ -74,7 +84,7 @@ export default {
 
 <style>
 .about {
-  min-height: 96vh;
+  height: 96vh;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: auto auto 1fr auto;
