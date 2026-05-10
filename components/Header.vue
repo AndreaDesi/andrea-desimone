@@ -77,7 +77,7 @@ nav {
   overflow: hidden;
   white-space: nowrap;
   vertical-align: bottom;
-  transition: max-width 0.5s ease;
+  transition: max-width 0.8s cubic-bezier(0.3, 0.0, 0.8, 0.15) 100ms;
 }
 
 .name-text.hidden {

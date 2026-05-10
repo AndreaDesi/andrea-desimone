@@ -105,7 +105,6 @@ export default {
   padding: 10px 0;
   text-transform: uppercase;
   font-size: 11px;
-  letter-spacing: 0.5px;
   background-color: transparent;
   font-family: "Catcus Semibold", sans-serif;
 }

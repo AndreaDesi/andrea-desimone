@@ -137,10 +137,14 @@ export default {
   line-height: 1.2;
 }
 
-.project-info {
+.info-col {
   display: grid;
-  grid-template-columns: 90px 1fr;
-  margin-bottom: 0.3rem;
+  grid-template-columns: max-content 1fr;
+  column-gap: 15px;
+}
+
+.project-info {
+  display: contents;
 }
 
 .info-label :deep(p) { margin: 0; text-transform: uppercase; }
@@ -180,8 +184,10 @@ export default {
 Responsive
 ----------*/
 @media (max-width: 992px) {
-  .project-header-row { grid-template-columns: 1fr; }
+  .project-header-row { grid-template-columns: 1fr; margin-bottom: 15px; }
   .gallery-item { grid-column: span 12 !important; }
+  .info-col { margin-top: 15px; margin-bottom:15px; row-gap: 0.1rem; }
+  .descrizione :deep(p) { margin-top: 15px; margin-bottom: 15px !important;}
 }
 
 </style>
