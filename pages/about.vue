@@ -24,8 +24,10 @@ export default {
   },
 
   mounted() {
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    if (window.innerWidth > 992) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    }
   },
 
   beforeDestroy() {
@@ -96,7 +98,7 @@ export default {
 .about-bio {
   grid-column: 1 / span 6;
   grid-row: 1;
-  font-size: calc(22px + (36 - 22) * ((100vw - 576px) / (2560 - 576)));
+  font-size: calc(23px + (36 - 22) * ((100vw - 576px) / (2560 - 576)));
   line-height: 1.2;
   font-family: "Catcus Semibold", sans-serif;
 }
@@ -155,11 +157,12 @@ export default {
 }
 
 .about-bottom > div > div:last-child {
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 992px) {
   .about {
+    height: auto;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
     grid-gap: 1.5rem;

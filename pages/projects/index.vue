@@ -6,6 +6,7 @@ export default {
         "project.slug",
         "project.title",
         "project.images",
+        "project.hover_image",
         "project.category",
         "category.category",
         "project.date",
@@ -54,9 +55,18 @@ export default {
               <span class="project-name">{{ $prismic.asText(project.data.title) }}</span>
             </div>
             <div class="project-image-box">
-              <div v-for="(img, index) in project.data.images" :key="index">
-                <img v-if="index === 0" :src="img.image.url" :alt="img.image.alt" />
-              </div>
+              <img
+                v-if="project.data.images && project.data.images[0]"
+                class="img-default"
+                :src="project.data.images[0].image.url"
+                :alt="project.data.images[0].image.alt"
+              />
+              <img
+                v-if="project.data.hover_image && project.data.hover_image.url"
+                class="img-hover"
+                :src="project.data.hover_image.url"
+                :alt="project.data.hover_image.alt"
+              />
             </div>
           </nuxt-link>
         </div>
@@ -70,6 +80,7 @@ export default {
   width: auto;
   gap: 5px;
   margin-top: 24px;
+  margin-bottom: 10px;
 }
 
 .grid-wrapper {
@@ -104,9 +115,14 @@ export default {
   aspect-ratio: 3 / 2;
   background-color: #1a0f0f;
   overflow: hidden;
+  position: relative;
 }
 
-.project-image-box img {
+.img-default,
+.img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -114,8 +130,16 @@ export default {
   filter: grayscale(20%);
 }
 
-.grid-item:hover .project-image-box img {
-  opacity: 0.8;
+.img-hover {
+  display: none;
+}
+
+.grid-item:hover .img-hover {
+  display: block;
+}
+
+.grid-item:hover .img-default {
+  display: none;
 }
 
 @media (max-width: 1024px) {

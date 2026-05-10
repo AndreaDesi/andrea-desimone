@@ -52,7 +52,7 @@ export default {
 
 <style lang="postcss">
 .starly__el {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   width: 30px;
 }

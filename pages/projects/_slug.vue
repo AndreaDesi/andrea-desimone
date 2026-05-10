@@ -67,7 +67,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="project">
+    <div v-if="project">
     <Starly />
     <div class="project container">
       
@@ -153,7 +153,7 @@ export default {
 .project-gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
+  gap: 5px;
   width: 100%;
 }
 
@@ -165,10 +165,15 @@ export default {
 }
 
 .footer {
+  font-family: "Catcus Semibold", sans-serif;
   display: flex;
   justify-content: space-between;
-  margin-top: 5rem;
-  padding-bottom: 3rem;
+  margin-top: 24px;
+  padding-bottom: 10px;
+}
+
+.avanti {
+  margin-left: auto;
 }
 
 /*--------

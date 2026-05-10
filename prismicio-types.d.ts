@@ -101,46 +101,6 @@ export interface AboutDocumentDataEducationItem {
 }
 
 /**
- * Item in *About → languages*
- */
-export interface AboutDocumentDataLanguagesItem {
-  /**
-   * content field in *About → languages*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.languages[].content
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  content: prismic.RichTextField;
-}
-
-/**
- * Item in *About → skills*
- */
-export interface AboutDocumentDataSkillsItem {
-  /**
-   * skill_sx field in *About → skills*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.skills[].skill_sx
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  skill_sx: prismic.RichTextField;
-
-  /**
-   * skill_dx field in *About → skills*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.skills[].skill_dx
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  skill_dx: prismic.RichTextField;
-}
-
-/**
  * Item in *About → awards*
  */
 export interface AboutDocumentDataAwardsItem {
@@ -208,28 +168,6 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   education: prismic.GroupField<Simplify<AboutDocumentDataEducationItem>>;
-
-  /**
-   * languages field in *About*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.languages[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  languages: prismic.GroupField<Simplify<AboutDocumentDataLanguagesItem>>;
-
-  /**
-   * skills field in *About*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.skills[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  skills: prismic.GroupField<Simplify<AboutDocumentDataSkillsItem>>;
 
   /**
    * awards field in *About*
@@ -518,6 +456,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
+
+  /**
+   * hover_image field in *Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.hover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  hover_image: prismic.ImageField<never>;
 }
 
 /**
@@ -615,8 +564,6 @@ declare module "@prismicio/client" {
       AboutDocumentData,
       AboutDocumentDataWorkExperienceItem,
       AboutDocumentDataEducationItem,
-      AboutDocumentDataLanguagesItem,
-      AboutDocumentDataSkillsItem,
       AboutDocumentDataAwardsItem,
       AboutDocumentDataClientsCollaborationsItem,
       CategoryDocument,

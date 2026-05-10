@@ -75,14 +75,16 @@ nav {
   display: inline-block;
   max-width: 200px;
   overflow: hidden;
-  opacity: 1;
   white-space: nowrap;
   vertical-align: bottom;
-  transition: max-width 0.5s ease, opacity 0.4s ease;
+  transition: max-width 0.5s ease;
 }
 
 .name-text.hidden {
   max-width: 0;
-  opacity: 0;
+}
+
+a:hover .name-text.hidden{
+  max-width: 200px;
 }
 </style>

@@ -97,6 +97,14 @@
             }
           }
         }
+      },
+      "hover_image": {
+        "type": "Image",
+        "config": {
+          "label": "hover_image",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

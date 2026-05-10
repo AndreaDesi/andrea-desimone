@@ -20,7 +20,7 @@ html {
   background-color: #ffffff;
   margin-left: 0.5%;
   margin-right: 0.5%;
-  font-family: "Catcus Grotesk", sans-serif;
+  font-family: "Catcus Semibold", sans-serif;
   font-variant-numeric: slashed-zero;
   font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
@@ -111,7 +111,7 @@ td {
 }
 
 .page-leave-active {
-  transition: transform 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: transform 0.8s cubic-bezier(0.3, 0.0, 0.8, 0.15) 100ms;
   position: fixed;
   top: 0;
   left: 0;
@@ -121,6 +121,8 @@ td {
   background-color: #ffffff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   transform-origin: center bottom;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .page-leave-to {
@@ -137,6 +139,6 @@ Responsive
   html {
     margin-left: 2%;
     margin-right: 2%;
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
   }
 }

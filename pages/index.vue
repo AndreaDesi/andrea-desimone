@@ -5,14 +5,14 @@ export default {
 </script>
 
 <template>
-  <div class="home">
-    <Starly />
-<div class="home__contacts">
-      <p>Email: <a href="mailto:andreadesimo1998@gmail.com"><u>andreadesimo1998@gmail.com</u></a></p>
-      <p>Instagram: <a href="https://www.instagram.com/desi_the_human" target="_blank"><u>@desi_the_human</u></a></p>
+    <div class="home">
+      <Starly />
+      <div class="home__contacts">
+        <p>Email: <a href="mailto:andreadesimo1998@gmail.com"><u>andreadesimo1998@gmail.com</u></a></p>
+        <p>Instagram: <a href="https://www.instagram.com/desi_the_human" target="_blank"><u>@desi_the_human</u></a></p>
+      </div>
+      <img src="/easter-egg.gif" class="home__bird" alt="" />
     </div>
-    <img src="/easter-egg.gif" class="home__bird" alt="" />
-  </div>
 </template>
 
 <style scoped>
