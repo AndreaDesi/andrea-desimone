@@ -33,7 +33,7 @@
                 "label": "content",
                 "placeholder": "",
                 "allowTargetBlank": true,
-                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
             }
           }
@@ -48,67 +48,6 @@
               "type": "StructuredText",
               "config": {
                 "label": "content",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-              }
-            }
-          }
-        }
-      },
-      "awards": {
-        "type": "Group",
-        "config": {
-          "label": "awards",
-          "fields": {
-            "content": {
-              "type": "StructuredText",
-              "config": {
-                "label": "content",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-              }
-            }
-          }
-        }
-      },
-      "clients_collaborations": {
-        "type": "Group",
-        "config": {
-          "label": "clients_collaborations",
-          "fields": {
-            "content": {
-              "type": "StructuredText",
-              "config": {
-                "label": "skill_sx",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-              }
-            },
-            "skill_dx": {
-              "type": "StructuredText",
-              "config": {
-                "label": "skill_dx",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-              }
-            }
-          }
-        }
-      },
-      "awards": {
-        "type": "Group",
-        "config": {
-          "label": "awards",
-          "repeat": true,
-          "fields": {
-            "awards": {
-              "type": "StructuredText",
-              "config": {
-                "label": "awards",
                 "placeholder": "",
                 "allowTargetBlank": true,
                 "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"

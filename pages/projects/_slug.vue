@@ -116,7 +116,6 @@ export default {
 
 <style scoped>
 .project {
-  font-family: "Catcus Semibold", sans-serif;
 }
 
 .project-header-row {
@@ -132,7 +131,6 @@ export default {
   margin-top: 0;
   font-style: normal;
   font-weight: normal;
-  font-size: inherit;
   text-transform: uppercase;
   line-height: 1.2;
 }
@@ -169,7 +167,6 @@ export default {
 }
 
 .footer {
-  font-family: "Catcus Semibold", sans-serif;
   display: flex;
   justify-content: space-between;
   margin-top: 24px;

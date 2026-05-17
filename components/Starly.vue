@@ -38,6 +38,7 @@ export default {
       starly.classList.add("starly__el");
       starly.style.left = Math.random() * this.width + "px";
       starly.style.top = Math.random() * this.height + "px";
+
       starlyWrapper.appendChild(starly);
     },
     removeStarly() {

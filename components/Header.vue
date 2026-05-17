@@ -47,7 +47,6 @@ nav {
   align-items: center;
   display: grid;
   align-content: stretch;
-  font-family: "Catcus Semibold", sans-serif;
 }
 
 #menu-nav {
@@ -77,7 +76,7 @@ nav {
   overflow: hidden;
   white-space: nowrap;
   vertical-align: bottom;
-  transition: max-width 0.8s cubic-bezier(0.3, 0.0, 0.8, 0.15) 100ms;
+  transition: max-width 0.8s cubic-bezier(0.3, 0.0, 0.8, 0.15);
 }
 
 .name-text.hidden {

@@ -5,11 +5,8 @@ export default {
       fetchLinks: [
         "project.slug",
         "project.title",
-        "project.images",
+        "project.preview_image",
         "project.hover_image",
-        "project.category",
-        "category.category",
-        "project.date",
       ],
     });
 
@@ -56,10 +53,10 @@ export default {
             </div>
             <div class="project-image-box">
               <img
-                v-if="project.data.images && project.data.images[0]"
+                v-if="project.data.preview_image && project.data.preview_image.url"
                 class="img-default"
-                :src="project.data.images[0].image.url"
-                :alt="project.data.images[0].image.alt"
+                :src="project.data.preview_image.url"
+                :alt="project.data.preview_image.alt"
               />
               <img
                 v-if="project.data.hover_image && project.data.hover_image.url"
@@ -104,9 +101,7 @@ export default {
 .project-info-top {
   padding: 10px 0;
   text-transform: uppercase;
-  font-size: 11px;
   background-color: transparent;
-  font-family: "Catcus Semibold", sans-serif;
 }
 
 .project-image-box {

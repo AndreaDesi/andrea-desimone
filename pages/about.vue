@@ -46,13 +46,6 @@ export default {
         <PrismicRichText :field="about.data.bio || []" />
       </div>
 
-      <div class="about-contacts">
-        <h2 class="about-title">CONTACTS</h2>
-        <p>Email: <a href="mailto:andreadesimo1998@gmail.com">andreadesimo1998@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/desi_the_human" target="_blank">@desi_the_human</a></p>
-        <p>CV: <PrismicLink :field="about.data.cv_link">Download</PrismicLink></p>
-      </div>
-
       <div class="about-bottom">
         <div>
           <h2 class="about-title">WORK EXPERIENCE:</h2>
@@ -67,16 +60,16 @@ export default {
           </div>
         </div>
         <div>
-          <h2 class="about-title">AWARDS</h2>
-          <div v-for="(el, i) in (about.data.awards || [])" :key="'award-' + i">
-            <PrismicRichText :field="el.content || []" />
-          </div>
-        </div>
-        <div>
-          <h2 class="about-title">CLIENTS &amp; COLLABORATIONS</h2>
+          <h2 class="about-title">SELECTED CLIENTS</h2>
           <div v-for="(el, i) in (about.data.clients_collaborations || [])" :key="'client-' + i">
             <PrismicRichText :field="el.content || []" />
           </div>
+        </div>
+        <div class="about-contacts">
+          <h2 class="about-title">CONTACTS</h2>
+          <p>Email: <a href="mailto:andreadesimo1998@gmail.com">andreadesimo1998@gmail.com</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/desi_the_human" target="_blank">@desi_the_human</a></p>
+          <p>CV: <PrismicLink :field="about.data.cv_link">Download</PrismicLink></p>
         </div>
       </div>
 
@@ -89,18 +82,19 @@ export default {
   height: 96vh;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: auto auto 1fr auto;
-  grid-gap: 1.5rem;
+  grid-template-rows: auto 1fr auto;
+  column-gap: 1.5rem;
+  row-gap: 0;
   padding-top: 24px;
-  font-family: "Catcus Semibold", sans-serif;
+  padding-bottom: 80px;
 }
 
 .about-bio {
   grid-column: 1 / span 6;
   grid-row: 1;
-  font-size: calc(23px + (36 - 22) * ((100vw - 576px) / (2560 - 576)));
+  align-self: start;
+  padding-bottom: 60px;
   line-height: 1.2;
-  font-family: "Catcus Semibold", sans-serif;
 }
 
 .about-bio p {
@@ -112,13 +106,12 @@ export default {
 }
 
 .about-contacts {
-  grid-column: 1 / span 4;
-  grid-row: 2;
+  margin-bottom: 0;
 }
 
 .about-contacts p {
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 .about-contacts a {
@@ -126,19 +119,17 @@ export default {
 }
 
 .about-bottom {
-  grid-column: 1 / span 10;
-  grid-row: 4;
+  grid-column: 1 / span 6;
+  grid-row: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1.5rem;
-  align-self: end;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 0;
 }
 
 .about-title {
-  font-family: inherit;
   font-style: normal;
   font-weight: normal;
-  font-size: inherit;
   text-transform: uppercase;
   margin: 0 0 0.3em 0;
 }
@@ -149,7 +140,7 @@ export default {
 
 .about-bottom p {
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .about-bottom > div > div {
@@ -169,12 +160,6 @@ export default {
   }
 
   .about-bio {
-    grid-column: 1;
-    grid-row: auto;
-    font-size: calc(18px + (26 - 18) * ((100vw - 320px) / (992 - 320)));
-  }
-
-  .about-contacts {
     grid-column: 1;
     grid-row: auto;
   }
