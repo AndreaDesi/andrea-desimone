@@ -105,26 +105,37 @@ export default {
 
     <div class="grid container footer">
       <nuxt-link class="indietro" v-if="prevProject" :to="prevProject.url">
-        <p>← Previous project</p>
+        <p>← Prev</p>
       </nuxt-link>
       <nuxt-link class="avanti" v-if="nextProject" :to="nextProject.url">
-        <p>Next project →</p>
+        <p>Next →</p>
       </nuxt-link>
     </div>
   </div>
 </template>
 
 <style scoped>
-.project {
-}
+
 
 .project-header-row {
   display: grid;
-  grid-template-columns: 2fr 3fr 7fr; 
-  column-gap: 5px;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 1rem;
   align-items: start;
   margin-bottom: 4rem;
   margin-top: 2rem;
+}
+
+.title-col {
+  grid-column: 1 / 3;
+}
+
+.info-col {
+  grid-column: 3 / 6;
+}
+
+.desc-col {
+  grid-column: 6 / 11;
 }
 
 .title :deep(h1) {
@@ -182,6 +193,7 @@ Responsive
 ----------*/
 @media (max-width: 992px) {
   .project-header-row { grid-template-columns: 1fr; margin-bottom: 15px; }
+  .title-col, .info-col, .desc-col { grid-column: 1; }
   .gallery-item { grid-column: span 12 !important; }
   .info-col { margin-top: 15px; margin-bottom:15px; row-gap: 0.1rem; }
   .descrizione :deep(p) { margin-top: 15px; margin-bottom: 15px !important;}

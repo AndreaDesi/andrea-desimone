@@ -47,6 +47,10 @@ nav {
   align-items: center;
   display: grid;
   align-content: stretch;
+  border: none;
+  outline: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 #menu-nav {
@@ -76,7 +80,7 @@ nav {
   overflow: hidden;
   white-space: nowrap;
   vertical-align: bottom;
-  transition: max-width 0.8s cubic-bezier(0.3, 0.0, 0.8, 0.15);
+  transition: max-width 0.6s cubic-bezier(0.8,0,0.2,1);
 }
 
 .name-text.hidden {
@@ -85,5 +89,15 @@ nav {
 
 a:hover .name-text.hidden{
   max-width: 200px;
+}
+
+@media (max-width: 767px) {
+  #menu-item-78 {
+    grid-column: 5;
+  }
+
+  #menu-item-79 {
+    grid-column: 9;
+  }
 }
 </style>

@@ -54,13 +54,13 @@ export default {
           </div>
         </div>
         <div>
-          <h2 class="about-title">EDUCATION:</h2>
+          <h2 class="about-title">SERVICES:</h2>
           <div v-for="(el, i) in about.data.education" :key="i">
             <PrismicRichText :field="el.content || []" />
           </div>
         </div>
         <div>
-          <h2 class="about-title">SELECTED CLIENTS</h2>
+          <h2 class="about-title">SELECTED CLIENTS:</h2>
           <div v-for="(el, i) in (about.data.clients_collaborations || [])" :key="'client-' + i">
             <PrismicRichText :field="el.content || []" />
           </div>
@@ -107,6 +107,7 @@ export default {
 
 .about-contacts {
   margin-bottom: 0;
+  grid-column: span 3;
 }
 
 .about-contacts p {
@@ -123,7 +124,7 @@ export default {
   grid-row: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 1.5rem;
+  column-gap: 5px;
   row-gap: 0;
 }
 
@@ -131,7 +132,7 @@ export default {
   font-style: normal;
   font-weight: normal;
   text-transform: uppercase;
-  margin: 0 0 0.3em 0;
+  margin: 0 0 1.2em 0;
 }
 
 .about-bottom a {
@@ -168,6 +169,10 @@ export default {
     grid-column: 1;
     grid-row: auto;
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .about-contacts {
+    grid-column: 1;
   }
 }
 </style>

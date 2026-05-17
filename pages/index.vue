@@ -46,5 +46,6 @@ export default {
   width: 30px;
   height: auto;
   margin-bottom: 15px;
+  image-rendering: crisp-edges;
 }
 </style>

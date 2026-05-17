@@ -56,5 +56,6 @@ export default {
   position: fixed;
   z-index: 1000;
   width: 30px;
+  image-rendering: crisp-edges;
 }
 </style>

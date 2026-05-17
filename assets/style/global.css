@@ -1,18 +1,7 @@
 @font-face {
-  font-family: "Catcus Grotesk";
-  src: url("/font/Catcus-Grotesk.woff2");
-  font-weight: 400;
-}
-
-@font-face {
   font-family: "Catcus Semibold";
   src: url("/font/Catcus-Semibold.ttf");
   font-weight: 600;
-}
-
-@font-face {
-  font-family: "Redaction 10";
-  src: url("/font/Redaction10-Italic.woff2");
 }
 
 html {
@@ -90,12 +79,6 @@ figure {
   grid-gap: 1.5rem;
 }
 
-.redaction {
-  font-family: "Redaction 10", serif;
-  font-style: italic;
-  font-weight: 500;
-}
-
 a:hover {
   color: #c0b3eb;
 }
@@ -126,14 +109,14 @@ td {
   height: 100vh;
   z-index: 9999;
   background-color: #ffffff;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0;
   transform-origin: left top;
   will-change: transform;
   backface-visibility: hidden;
 }
 
 .page-leave-to {
-  transform: translateY(100vh) rotate(3deg);
+  transform: translateY(100vh) rotate(10deg);
 }
 
 /*--------
@@ -147,5 +130,6 @@ Responsive
     margin-left: 2%;
     margin-right: 2%;
     overflow-x: clip !important;
+    font-size: 15px;
   }
 }

@@ -101,33 +101,18 @@ export interface AboutDocumentDataEducationItem {
 }
 
 /**
- * Item in *About → awards*
- */
-export interface AboutDocumentDataAwardsItem {
-  /**
-   * awards field in *About → awards*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.awards[].awards
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  awards: prismic.RichTextField;
-}
-
-/**
  * Item in *About → clients_collaborations*
  */
 export interface AboutDocumentDataClientsCollaborationsItem {
   /**
-   * clients_collaborations field in *About → clients_collaborations*
+   * content field in *About → clients_collaborations*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.clients_collaborations[].clients_collaborations
+   * - **API ID Path**: about.clients_collaborations[].content
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  clients_collaborations: prismic.RichTextField;
+  content: prismic.RichTextField;
 }
 
 /**
@@ -168,17 +153,6 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   education: prismic.GroupField<Simplify<AboutDocumentDataEducationItem>>;
-
-  /**
-   * awards field in *About*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.awards[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  awards: prismic.GroupField<Simplify<AboutDocumentDataAwardsItem>>;
 
   /**
    * clients_collaborations field in *About*
@@ -403,28 +377,6 @@ interface ProjectDocumentData {
   title: prismic.RichTextField;
 
   /**
-   * category field in *Project*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.category
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  category: prismic.ContentRelationshipField<"category">;
-
-  /**
-   * date field in *Project*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  date: prismic.RichTextField;
-
-  /**
    * Info field in *Project*
    *
    * - **Field Type**: Group
@@ -447,17 +399,6 @@ interface ProjectDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * images field in *Project*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.images[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
-
-  /**
    * hover_image field in *Project*
    *
    * - **Field Type**: Image
@@ -467,6 +408,28 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   hover_image: prismic.ImageField<never>;
+
+  /**
+   * preview_image field in *Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.preview_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  preview_image: prismic.ImageField<never>;
+
+  /**
+   * images field in *Project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
 }
 
 /**
@@ -564,7 +527,6 @@ declare module "@prismicio/client" {
       AboutDocumentData,
       AboutDocumentDataWorkExperienceItem,
       AboutDocumentDataEducationItem,
-      AboutDocumentDataAwardsItem,
       AboutDocumentDataClientsCollaborationsItem,
       CategoryDocument,
       CategoryDocumentData,
