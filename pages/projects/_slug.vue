@@ -159,7 +159,7 @@ export default {
 .info-label :deep(p) { margin: 0; text-transform: uppercase; }
 .info-value :deep(p) { margin: 0; }
 .info-value :deep(a) { text-decoration: underline; }
-.descrizione { line-height: 1.4; }
+.descrizione { line-height: 1.2; }
 .descrizione :deep(p) { text-indent: 10%; margin-top: 0; margin-bottom: 0.8em; }
 .descrizione :deep(p:first-child) { text-indent: 0; }
 
