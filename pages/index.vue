@@ -48,4 +48,14 @@ export default {
   margin-bottom: 15px;
   image-rendering: crisp-edges;
 }
+
+@media (max-width: 767px) {
+  .home__contacts {
+    left: 2%;
+  }
+
+  .home__bird {
+    right: 2%;
+  }
+}
 </style>

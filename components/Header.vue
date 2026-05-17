@@ -59,10 +59,14 @@ nav {
   grid-gap: 1rem;
   margin: 0px 0px 0px 0px;
   align-items: center;
+  position: relative;
 }
 
 #menu-item-77 {
-  grid-column: 1;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   white-space: nowrap;
 }
 
@@ -87,13 +91,13 @@ nav {
   max-width: 0;
 }
 
-a:hover .name-text.hidden{
+a:hover .name-text.hidden {
   max-width: 200px;
 }
 
 @media (max-width: 767px) {
   #menu-item-78 {
-    grid-column: 5;
+    grid-column: 7;
   }
 
   #menu-item-79 {

@@ -99,7 +99,7 @@ export default {
 }
 
 .project-info-top {
-  padding: 10px 0;
+  padding-bottom: 15px;
   text-transform: uppercase;
   background-color: transparent;
 }
