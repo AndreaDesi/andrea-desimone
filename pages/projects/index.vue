@@ -11,8 +11,10 @@ export default {
     });
 
     if (projects) {
-      console.log(projects.data);
-      return { projects: projects.data.projects };
+      const validProjects = projects.data.projects.filter(
+        ({ project }) => project && !project.isBroken && project.data
+      );
+      return { projects: validProjects };
     } else {
       error({ statusCode: 404, message: "Page not found" });
     }
