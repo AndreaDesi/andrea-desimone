@@ -97,7 +97,15 @@ export default {
           :key="index"
           :style="{ gridColumn: `span ${getColSpan(img.columns)}` }"
         >
-          <img :src="img.image.url" :alt="img.image.alt || ''" />
+          <video
+            v-if="img.video && img.video.url"
+            :src="img.video.url"
+            autoplay
+            muted
+            loop
+            playsinline
+          />
+          <img v-else :src="img.image.url" :alt="img.image.alt || ''" />
         </div>
       </div>
 
@@ -170,7 +178,8 @@ export default {
   width: 100%;
 }
 
-.gallery-item img {
+.gallery-item img,
+.gallery-item video {
   width: 100%;
   height: auto;
   display: block;

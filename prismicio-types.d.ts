@@ -351,6 +351,16 @@ export interface ProjectDocumentDataImagesItem {
   image: prismic.ImageField<never>;
 
   /**
+   * video field in *Project → images*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  video: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
    * columns field in *Project → images*
    *
    * - **Field Type**: Select

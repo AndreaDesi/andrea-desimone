@@ -86,6 +86,14 @@
                 "thumbnails": []
               }
             },
+            "video": {
+              "type": "Link",
+              "config": {
+                "label": "video",
+                "placeholder": "",
+                "select": "media"
+              }
+            },
             "columns": {
               "type": "Select",
               "config": {
