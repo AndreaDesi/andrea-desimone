@@ -353,12 +353,12 @@ export interface ProjectDocumentDataImagesItem {
   /**
    * video field in *Project → images*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
    * - **API ID Path**: project.images[].video
-   * - **Documentation**: https://prismic.io/docs/fields/link
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
-  video: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
 
   /**
    * columns field in *Project → images*
@@ -409,17 +409,6 @@ interface ProjectDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * hover_image field in *Project*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.hover_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  hover_image: prismic.ImageField<never>;
-
-  /**
    * preview_image field in *Project*
    *
    * - **Field Type**: Image
@@ -429,6 +418,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   preview_image: prismic.ImageField<never>;
+
+  /**
+   * hover_image field in *Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.hover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  hover_image: prismic.ImageField<never>;
 
   /**
    * images field in *Project*

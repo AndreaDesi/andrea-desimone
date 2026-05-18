@@ -73,7 +73,7 @@ export default {
       
       <div class="project-header-row">
         <div class="title-col">
-          <PrismicRichText class="title" :field="project.title" />
+          {{ $prismic.asText(project.title) }}
         </div>
         
         <div class="info-col">
@@ -136,6 +136,8 @@ export default {
 
 .title-col {
   grid-column: 1 / 3;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .info-col {
@@ -144,14 +146,6 @@ export default {
 
 .desc-col {
   grid-column: 6 / 11;
-}
-
-.title :deep(h1) {
-  margin-top: 0;
-  font-style: normal;
-  font-weight: normal;
-  text-transform: uppercase;
-  line-height: 1.2;
 }
 
 .info-col {
@@ -168,8 +162,7 @@ export default {
 .info-value :deep(p) { margin: 0; }
 .info-value :deep(a) { text-decoration: underline; }
 .descrizione { line-height: 1.2; }
-.descrizione :deep(p) { text-indent: 10%; margin-top: 0; margin-bottom: 0.8em; }
-.descrizione :deep(p:first-child) { text-indent: 0; }
+.descrizione :deep(p) { margin-top: 0; margin-bottom: 2px; }
 
 .project-gallery-grid {
   display: grid;

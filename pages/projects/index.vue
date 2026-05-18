@@ -125,19 +125,17 @@ export default {
   object-fit: cover;
   display: block;
   filter: grayscale(20%);
+  transition: linear .1s;
 }
 
 .img-hover {
-  display: none;
+  opacity: 0;
 }
 
 .grid-item:hover .img-hover {
-  display: block;
+  opacity: 1;
 }
 
-.grid-item:hover .img-default {
-  display: none;
-}
 
 @media (max-width: 1024px) {
   .grid-wrapper {

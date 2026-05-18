@@ -81,6 +81,7 @@ figure {
 
 a:hover {
   color: #c0b3eb;
+  transition: linear .1s;
 }
 
 table {
