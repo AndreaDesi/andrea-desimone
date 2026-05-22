@@ -4,39 +4,61 @@ export default {
     getColSpan(columns) {
       const map = { '1': 12, '2': 6, '3': 4, '4': 3 };
       return map[columns] || 6;
-    }
+    },
+    getVideoUrl(url) {
+      if (!url) return null;
+      const cloudName = 'dfr4bd44p';
+      return `https://res.cloudinary.com/${cloudName}/video/fetch/f_auto,q_auto,vc_auto/${encodeURIComponent(url)}`;
+    },
   },
   async asyncData({ $prismic, params, error }) {
     try {
       const project = await $prismic.api.getByUID("project", params.slug);
 
-      const prevProject = (
-        await $prismic.api.query(
-          $prismic.predicates.at("document.type", "project"),
-          {
-            pageSize: 1,
-            after: `${project.id}`,
-            orderings: "[document.first_publication_date desc]",
-          }
-        )
-      ).results[0];
+      const projectsList = await $prismic.api.getSingle("projects", {
+        fetchLinks: ["project.slug", "project.title"],
+      });
 
-      const nextProject = (
-        await $prismic.api.query(
-          $prismic.predicates.at("document.type", "project"),
-          {
-            pageSize: 1,
-            after: `${project.id}`,
-            orderings: "[document.first_publication_date]",
-          }
-        )
-      ).results[0];
+      const validProjects = projectsList.data.projects.filter(
+        ({ project }) => project && !project.isBroken && project.data,
+      );
+      const currentIndex = validProjects.findIndex(
+        ({ project: p }) => p.id === project.id,
+      );
+      const prevProject =
+      currentIndex < validProjects.length - 1
+      ? validProjects[currentIndex + 1].project
+      : null;
+      const nextProject =
+      currentIndex > 0 ? validProjects[currentIndex - 1].project : null;
+
+      // const prevProject = (
+      //   await $prismic.api.query(
+      //     $prismic.predicates.at("document.type", "project"),
+      //     {
+      //       pageSize: 1,
+      //       after: `${project.id}`,
+      //       orderings: "[document.first_publication_date desc]",
+      //     }
+      //   )
+      // ).results[0];
+
+      // const nextProject = (
+      //   await $prismic.api.query(
+      //     $prismic.predicates.at("document.type", "project"),
+      //     {
+      //       pageSize: 1,
+      //       after: `${project.id}`,
+      //       orderings: "[document.first_publication_date]",
+      //     }
+      //   )
+      // ).results[0];
 
       if (project) {
-        return { 
-          project: project.data, 
-          prevProject, 
-          nextProject 
+        return {
+          project: project.data,
+          prevProject,
+          nextProject,
         };
       }
     } catch (e) {
@@ -49,8 +71,9 @@ export default {
         title: [],
         info: [],
         description: [],
-        images: []
-      }
+        images: [],
+      },
+      failedVideos: {},
     };
   },
   head() {
@@ -58,8 +81,17 @@ export default {
     return {
       title: this.project.title[0].text,
       meta: [
-        { hid: "og-title", name: "og:title", content: this.project.title[0].text },
-        { name: "description", content: this.project.description[0] ? this.project.description[0].text : "" }
+        {
+          hid: "og-title",
+          name: "og:title",
+          content: this.project.title[0].text,
+        },
+        {
+          name: "description",
+          content: this.project.description[0]
+            ? this.project.description[0].text
+            : "",
+        },
       ],
     };
   },
@@ -67,15 +99,14 @@ export default {
 </script>
 
 <template>
-    <div v-if="project">
+  <div v-if="project">
     <Starly />
     <div class="project container">
-      
       <div class="project-header-row">
         <div class="title-col">
           {{ $prismic.asText(project.title) }}
         </div>
-        
+
         <div class="info-col">
           <div class="project-info" v-for="(info, i) in project.info" :key="i">
             <PrismicRichText class="info-label" :field="info.row_title" />
@@ -98,17 +129,18 @@ export default {
           :style="{ gridColumn: `span ${getColSpan(img.columns)}` }"
         >
           <video
-            v-if="img.video && img.video.url"
-            :src="img.video.url"
+            v-if="img.video && img.video.url && !failedVideos[index]"
+            :src="getVideoUrl(img.video.url)"
+            :poster="img.image && img.image.url ? img.image.url : undefined"
             autoplay
             muted
             loop
             playsinline
+            @error="$set(failedVideos, index, true)"
           />
           <img v-else :src="img.image.url" :alt="img.image.alt || ''" />
         </div>
       </div>
-
     </div>
 
     <div class="grid container footer">
@@ -123,8 +155,6 @@ export default {
 </template>
 
 <style scoped>
-
-
 .project-header-row {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
@@ -158,11 +188,23 @@ export default {
   display: contents;
 }
 
-.info-label :deep(p) { margin: 0; text-transform: uppercase; }
-.info-value :deep(p) { margin: 0; }
-.info-value :deep(a) { text-decoration: underline; }
-.descrizione { line-height: 1.2; }
-.descrizione :deep(p) { margin-top: 0; margin-bottom: 2px; }
+.info-label :deep(p) {
+  margin: 0;
+  text-transform: uppercase;
+}
+.info-value :deep(p) {
+  margin: 0;
+}
+.info-value :deep(a) {
+  text-decoration: underline;
+}
+.descrizione {
+  line-height: 1.2;
+}
+.descrizione :deep(p) {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
 
 .project-gallery-grid {
   display: grid;
@@ -194,11 +236,26 @@ export default {
 Responsive
 ----------*/
 @media (max-width: 992px) {
-  .project-header-row { grid-template-columns: 1fr; margin-bottom: 15px; }
-  .title-col, .info-col, .desc-col { grid-column: 1; }
-  .gallery-item { grid-column: span 12 !important; }
-  .info-col { margin-top: 15px; margin-bottom:15px; row-gap: 0.1rem; }
-  .descrizione :deep(p) { margin-top: 15px; margin-bottom: 15px !important;}
+  .project-header-row {
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+  }
+  .title-col,
+  .info-col,
+  .desc-col {
+    grid-column: 1;
+  }
+  .gallery-item {
+    grid-column: span 12 !important;
+  }
+  .info-col {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    row-gap: 0.1rem;
+  }
+  .descrizione :deep(p) {
+    margin-top: 15px;
+    margin-bottom: 15px !important;
+  }
 }
-
 </style>
