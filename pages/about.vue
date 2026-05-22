@@ -1,6 +1,6 @@
 <script>
 export default {
-  async asyncData({ $prismic, params, error, store }) {
+  async asyncData({ $prismic, error }) {
     const about = await $prismic.api.getSingle("about");
 
     if (about) {

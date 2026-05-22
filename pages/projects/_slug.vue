@@ -2,12 +2,12 @@
 export default {
   methods: {
     getColSpan(columns) {
-      const map = { '1': 12, '2': 6, '3': 4, '4': 3 };
+      const map = { 1: 12, 2: 6, 3: 4, 4: 3 };
       return map[columns] || 6;
     },
     getVideoUrl(url) {
       if (!url) return null;
-      const cloudName = 'dfr4bd44p';
+      const cloudName = "dfr4bd44p";
       return `https://res.cloudinary.com/${cloudName}/video/fetch/f_auto,q_auto,vc_auto/${encodeURIComponent(url)}`;
     },
   },
@@ -26,34 +26,11 @@ export default {
         ({ project: p }) => p.id === project.id,
       );
       const prevProject =
-      currentIndex < validProjects.length - 1
-      ? validProjects[currentIndex + 1].project
-      : null;
+        currentIndex < validProjects.length - 1
+          ? validProjects[currentIndex + 1].project
+          : null;
       const nextProject =
-      currentIndex > 0 ? validProjects[currentIndex - 1].project : null;
-
-      // const prevProject = (
-      //   await $prismic.api.query(
-      //     $prismic.predicates.at("document.type", "project"),
-      //     {
-      //       pageSize: 1,
-      //       after: `${project.id}`,
-      //       orderings: "[document.first_publication_date desc]",
-      //     }
-      //   )
-      // ).results[0];
-
-      // const nextProject = (
-      //   await $prismic.api.query(
-      //     $prismic.predicates.at("document.type", "project"),
-      //     {
-      //       pageSize: 1,
-      //       after: `${project.id}`,
-      //       orderings: "[document.first_publication_date]",
-      //     }
-      //   )
-      // ).results[0];
-
+        currentIndex > 0 ? validProjects[currentIndex - 1].project : null;
       if (project) {
         return {
           project: project.data,

@@ -12,7 +12,6 @@
         <Nuxt />
       </div>
     </transition>
-    <Footer />
   </div>
 </template>
 

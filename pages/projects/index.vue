@@ -1,6 +1,6 @@
 <script>
 export default {
-  async asyncData({ $prismic, params, error, store }) {
+  async asyncData({ $prismic, error }) {
     const projects = await $prismic.api.getSingle("projects", {
       fetchLinks: [
         "project.slug",
