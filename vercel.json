@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn generate",
+  "buildCommand": "rm -rf node_modules/.cache && yarn generate",
   "outputDirectory": "dist",
   "headers": [
     {
