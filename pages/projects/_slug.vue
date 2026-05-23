@@ -26,11 +26,11 @@ export default {
         ({ project: p }) => p.id === project.id,
       );
       const prevProject =
+        currentIndex > 0 ? validProjects[currentIndex - 1].project : null;
+      const nextProject =
         currentIndex < validProjects.length - 1
           ? validProjects[currentIndex + 1].project
           : null;
-      const nextProject =
-        currentIndex > 0 ? validProjects[currentIndex - 1].project : null;
       if (project) {
         return {
           project: project.data,
@@ -221,6 +221,8 @@ Responsive
   .info-col,
   .desc-col {
     grid-column: 1;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .gallery-item {
     grid-column: span 12 !important;
@@ -229,10 +231,6 @@ Responsive
     margin-top: 15px;
     margin-bottom: 15px;
     row-gap: 0.1rem;
-  }
-  .descrizione :deep(p) {
-    margin-top: 15px;
-    margin-bottom: 15px !important;
   }
 }
 </style>
